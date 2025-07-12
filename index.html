@@ -2,46 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lagan Mandap</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Lagan Mandap - Find and book your dream wedding venue in Kathmandu.">
-  <meta name="keywords" content="wedding, venues, Kathmandu, Lagan Mandap, Nepal, marriage">
-  <meta name="author" content="Lagan Mandap Team">
+  <meta name="description" content="Lagan Mandap - Find and book your dream wedding venue in Kathmandu." />
+  <meta name="keywords" content="wedding, venues, Kathmandu, Lagan Mandap, Nepal, marriage" />
+  <meta name="author" content="Lagan Mandap Team" />
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="Styles/index.css" />
 
-  <!-- JS -->
-  <script src="./js/Search.js" defer></script>
+  <!-- Search JS -->
+  <script src="./js/searchhander.js" defer></script>
 </head>
 
 <body>
-
   <!-- ===== NAVIGATION ===== -->
-   <header class="navbar">
-  <div class="navbar-container">
-    <div class="logo"><img src="./image/LOGo.png" alt="Lagan Mandap Logo" /></div>
-    <h1>Lagan Mandap</h1>
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <img src="./image/LOGo.png" alt="Lagan Mandap Logo" />
+      </div>
+      <h1>Lagan Mandap</h1>
 
-    <nav class="nav-links">
-      <a href="./pages/Venues.html"><i class="fa-solid fa-building"></i> Venues</a>
-      <a href="./pages/Packages.html"><i class="fa-solid fa-tag"></i> Packages</a>
-      <a href="./pages/Contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
-      <a href="./pages/About.html"><i class="fa-solid fa-circle-info"></i> About</a>
-      <a href="./pages/alisha.html"><i class="fa-solid fa-user"></i> Book Now</a>
-    </nav>
+      <!-- Hamburger Menu Button -->
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
 
-    <div class="nav-search">
-      <input type="text" placeholder="Search venues..." />
-      <i class="fa fa-search"></i>
+      <!-- Nav Links -->
+      <nav class="nav-links">
+        <a href="./pages/Venues.html"><i class="fa-solid fa-building"></i> Venues</a>
+        <a href="./pages/Packages.html"><i class="fa-solid fa-tag"></i> Packages</a>
+        <a href="./pages/Contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
+        <a href="./pages/About.html"><i class="fa-solid fa-circle-info"></i> About</a>
+        <a href="./pages/alisha.html"><i class="fa-solid fa-user"></i> Book Now</a>
+      </nav>
+
+      <!-- Search -->
+      <div class="nav-search">
+        <input
+          type="text"
+          id="globalSearch"
+          placeholder="Search venues..."
+          autocomplete="off"
+        />
+        <i class="fa fa-search"></i>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
   <!-- ===== HERO SECTION ===== -->
   <section class="container">
@@ -61,8 +74,8 @@
       <div class="about-text">
         <h2>From Mandap to Memories - The Nepali Way</h2>
         <p>
-          LaganMandap.com is Nepal’s one-stop wedding venue booking platform designed to make your big day stress-free and beautiful. 
-          From traditional mandaps to luxurious banquet halls, we help you discover, compare, and book the perfect venue that matches your style 
+          LaganMandap.com is Nepal’s one-stop wedding venue booking platform designed to make your big day stress-free and beautiful.
+          From traditional mandaps to luxurious banquet halls, we help you discover, compare, and book the perfect venue that matches your style
           and budget. Whether you're planning an intimate ceremony or a grand celebration, LaganMandap connects you to verified venues across Nepal with just a few clicks.
           Let us simplify your wedding journey — because every perfect “lagan” deserves a perfect “mandap.”
         </p>
@@ -76,44 +89,38 @@
     <h2 class="popular-heading">Popular Venues</h2>
 
     <div class="venue-list" id="venueList">
-
-      <!-- Venue 1 -->
+      <!-- Sample Venue Cards -->
       <div class="venue-card">
-        <img src="./image/images.jpeg" alt="Smart Durbar">
+        <img src="./image/images.jpeg" alt="Smart Durbar" />
         <h3>Smart Durbar</h3>
         <p><i class="fa-solid fa-location-dot"></i> Pragati Tole Marg 04, Kathmandu</p>
         <p><i class="fa-solid fa-phone"></i> 01-526325</p>
         <a href="./pages/smart.html" class="btn">View Detail</a>
       </div>
 
-      <!-- Venue 2 -->
       <div class="venue-card">
-        <img src="./image/Impereial_Banquet_Terrace_Reception.jpg" alt="Imperial Banquet">
+        <img src="./image/Impereial_Banquet_Terrace_Reception.jpg" alt="Imperial Banquet" />
         <h3>Imperial Banquet</h3>
         <p><i class="fa-solid fa-location-dot"></i> New Baneshwor, near KI Tower</p>
         <p><i class="fa-solid fa-phone"></i> 01-965324 / 984195368</p>
         <a href="./pages/Imperial.html" class="btn">View Detail</a>
       </div>
 
-      <!-- Venue 3 -->
       <div class="venue-card">
-        <img src="./image/nepabanquate.jpeg" alt="Nepa Banquet">
+        <img src="./image/nepabanquate.jpeg" alt="Nepa Banquet" />
         <h3>Nepa Banquet</h3>
         <p><i class="fa-solid fa-location-dot"></i> Nayabazaar, Khusibu</p>
         <p><i class="fa-solid fa-phone"></i> 01-50028 / 984563217</p>
         <a href="./pages/nepa.html" class="btn">View Detail</a>
       </div>
 
-      <!-- Venue 4 -->
       <div class="venue-card">
-        <img src="./image/Binayak multii vennue.jpeg" alt="Binayak Multi Venue">
+        <img src="./image/Binayak multii vennue.jpeg" alt="Binayak Multi Venue" />
         <h3>Binayak Multi Venue</h3>
         <p><i class="fa-solid fa-location-dot"></i> Tinkune</p>
         <p><i class="fa-solid fa-phone"></i> 01-5002801</p>
         <a href="./pages/Binayak.html" class="btn">View Detail</a>
       </div>
-
-
     </div>
   </section>
 
@@ -140,10 +147,20 @@
       <p>&copy; 2025 laganMandap.com. All rights reserved.</p>
     </div>
   </footer>
-  
 
   <!-- ===== SCROLL TO TOP BUTTON ===== -->
   <a href="#" class="scroll-top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
 
+  <!-- Hamburger menu script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleBtn = document.getElementById("menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    });
+  </script>
 </body>
 </html>

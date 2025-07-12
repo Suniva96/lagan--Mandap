@@ -1,174 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venue | Laganmandap.com</title>
-    <link rel="stylesheet" href="../Styles/Venue.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venue | Laganmandap.com</title>
+
+  <link rel="stylesheet" href="../Styles/Venue.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-    <header> 
-        <h1>Laganmandap.com</h1>
-        <div class="breadcrumb">
-      <a href="../pages/index.html">Home</a>
-      <span>›</span>
-      <span>Venue</span>
-    </div>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Search...">
-            <button id="search-btn">SEARCH</button>
-        </div>
-    </header>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <img src="../image/LOGo.png" alt="Lagan Mandap Logo" />
+      </div>
+      <h1>Lagan Mandap</h1>
 
-    <aside class="filter">
-        <h3>Filter</h3>
-        <input type="number" placeholder="Rating (1-5)">
-        <input type="text" placeholder="Price Range">
-    </aside>
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
 
-    <main>
-  <section class="venue-list">
-
-    <!-- Imadol Banquet -->
-    <div class="venue-item">
-      <img src="../image/Imadol Banquet.jpg" alt="Imadol Banquet">
-      <h3>Imadol Banquet</h3>
-      <p>Seat Capacity: 800 people</p>
-      <p>Venue Type: Party Palace</p>
-      <p>Space Preference: Indoor, Outdoor</p>
-      <p>Service Location: Lalitpur</p>
-      <a href="./Imadol.html" class="details-btn">DETAILS</a>
+      <nav class="nav-links" id="nav-links">
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="./Packages.html"><i class="fa-solid fa-tag"></i> Packages</a>
+        <a href="./Contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
+        <a href="./About.html"><i class="fa-solid fa-circle-info"></i> About</a>
+        <a href="./alisha.html"><i class="fa-solid fa-user"></i> Book Now</a>
+      </nav>
     </div>
 
-    <!-- Binayak Multi Venue -->
-    <div class="venue-item">
-      <img src="../image/Binayak multii vennue.jpeg" alt="Binayak Multi Venue">
-      <h3>Binayak Multi Venue</h3>
-      <p>Seat Capacity: 800 people</p>
-      <p>Venue Type: Party Palace</p>
-      <p>Space Preference: Indoor</p>
-      <p>Service Location: Kathmandu</p>
-      <a href="./Binayak.html" class="details-btn">DETAILS</a>
+    <!-- Search box and clear button -->
+    <div class="nav-search" style="margin-top: 0.5rem; padding: 0 1rem;">
+      <input
+        type="text"
+        id="globalSearch"
+        placeholder="Search by venue name..."
+        autocomplete="off"
+      />
     </div>
+    <div id="message"></div>
+  </header>
 
-    <!-- Jadibuti Indreni Banquet -->
-    <div class="venue-item">
-      <img src="../image/jaibuti Inderni Banquet.jpg" alt="Jadibuti Indreni Banquet">
-      <h3>Jadibuti Indreni Banquet</h3>
-      <p>Seat Capacity: 800 people</p>
-      <p>Venue Type: Party Palace, Cafe</p>
-      <p>Space Preference: Indoor</p>
-      <p>Service Location: Kathmandu</p>
-      <a href="./jaibuti.html" class="details-btn">DETAILS</a>
-    </div>
+  <!-- ===== FILTER SECTION ===== -->
+  <aside class="filter">
+    <h3>Filter</h3>
+    <input type="number" id="ratingInput" placeholder="Minimum Rating (1-5)" min="1" max="5" />
+    <input type="text" id="priceInput" placeholder="Max Price (e.g. 50000)" />
+  </aside>
 
-    <!-- Samrat Party Palace -->
-    <div class="venue-item">
-      <img src="../image/diyo1.jpg" alt="Diyo Party Palace">
-      <h3> Diyo Party Palace</h3>
-      <p>Seat Capacity: 400 people</p>
-      <p>Venue Type: Party Palace</p>
-      <p>Space Preference: Indoor</p>
-      <p>Service Location: Kathmandu</p>
-      <a href="./Diyo.html" class="details-btn">DETAILS</a>
-    </div>
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <section class="venue-list" id="venue-list">
+      <div id="imadolBanquet" class="venue-item" data-name="Imadol Banquet" data-rating="5" data-price="60000">
+        <img src="../image/Imadol Banquet.jpg" alt="Imadol Banquet" />
+        <h3>Imadol Banquet</h3>
+        <p>Seat Capacity: 800 people</p>
+        <p>Venue Type: Party Palace</p>
+        <p>Space Preference: Indoor, Outdoor</p>
+        <p>Service Location: Lalitpur</p>
+        <a href="./Imadol.html" class="details-btn">DETAILS</a>
+      </div>
 
-    <!-- Darshan Party Palace -->
-    <div class="venue-item">
-      <img src="../image/Darshan Banquet.jpg" alt="Darshan Party Palace">
-      <h3>Darshan Party Palace</h3>
-      <p>Venue Type: Party Palace</p>
-      <p>Space Preference: Indoor</p>
-      <p>Service Location: Kathmandu</p>
-      <a href="./Darshan.html" class="details-btn">DETAILS</a>
-    </div>
+      <div id="smartDurbarBanquet" class="venue-item" data-name="Smart Durbar Banquet" data-rating="5" data-price="250000">
+        <img src="../image/smartimage1" alt="Smart Durbar Banquet" />
+        <h3>Smart Durbar Banquet</h3>
+        <p>Seat Capacity: 1500 people</p>
+        <p>Space Preference: Indoor, Outdoor</p>
+        <p>Service Location: Dhumbarahi</p>
+        <a href="./smart.html" class="details-btn">DETAILS</a>
+      </div>
 
-    <!-- Swayambhu Star Banquet -->
-    <div class="venue-item">
-      <img src="../image/Sawyubhu1.jpeg" alt="Swayambhu Star Banquet">
-      <h3>Swayambhu Star Banquet</h3>
-      <p>Venue Type: Party Palace</p>
-      <p>Space Preference: Indoor</p>
-      <p>Service Location: Swayambhu, Kathmandu</p>
-      <a href="./Sawyambu.html" class="details-btn">DETAILS</a>
-    </div>
+      <div id="swayambhuStarBanquet" class="venue-item" data-name="Swayambhu Star Banquet" data-rating="3" data-price="250000">
+        <img src="../image/sawyubhu4.jpeg" alt="Swayambhu Star Banquet" />
+        <h3>Swayambhu Star Banquet</h3>
+        <p>Seat Capacity: Maximum 500 people</p>
+        <p>Space Preference: Indoor</p>
+        <p>Service Location: Swayambhu</p>
+        <a href="./Sawyambu.html" class="details-btn">DETAILS</a>
+      </div>
 
-    <!-- Multi Venue -->
-    <div class="venue-item">
-      <img src="../image/multivennue1.jpeg" alt="Multi Venue">
-      <h3>Multi Venue</h3>
-      <p>Venue Type: Party Palace</p>
-      <p>Space Preference: Indoor, Outdoor</p>
-      <p>Service Location: Nayabazaar</p>
-      <a href="./multivennue.html" class="details-btn">DETAILS</a>
-    </div>
+      <div id="anupamFoodlandBanquet" class="venue-item" data-name="Anupam Foodland & Banquet" data-rating="3" data-price="250000">
+        <img src="../image/anupam1.jpg" alt="Anupam Foodland & Banquet" />
+        <h3>Anupam Foodland & Banquet</h3>
+        <p>Seat Capacity: Maximum 800 people</p>
+        <p>Space Preference: Indoor</p>
+        <p>Service Location: Swayambhu</p>
+        <a href="./Anupam.html" class="details-btn">DETAILS</a>
+      </div>
 
-    <!-- Nepa Banquet -->
-    <div class="venue-item">
-      <img src="../image/nepabanquate.jpeg" alt="Nepa Banquet">
-      <h3>Nepa Banquet</h3>
-      <p>Venue Type: Party Palace</p>
-      <p>Space Preference: Indoor</p>
-      <p>Service Location: Nayabazaar</p>
-      <a href="./nepa.html" class="details-btn">DETAILS</a>
-    </div>
+      <div id="binayakMultiVenue" class="venue-item" data-name="Binayak Multi Venue" data-rating="4" data-price="250000">
+        <img src="../image/binayak1.jpeg" alt="Binayak Multi Venue" />
+        <h3>Binayak Multi Venue</h3>
+        <p>Seat Capacity: Maximum 300 people</p>
+        <p>Space Preference: Indoor</p>
+        <p>Service Location: Dhumbarai, Basundhara</p>
+        <a href="./Binayak.html" class="details-btn">DETAILS</a>
+      </div>
 
-    <!-- Smart Durbar Banquet -->
-    <div class="venue-item">
-      <img src="../image/smartdurbar2" alt="Smart Durbar Banquet">
-      <h3>Smart Durbar Banquet</h3>
-      <p>Venue Type: Party Palace, College Program</p>
-      <p>Space Preference: Indoor</p>
-      <p>Service Location: Dhumbarahi</p>
-      <a href="./smart.html" class="details-btn">DETAILS</a>
-    </div>
+      <div id="darshanBanquet" class="venue-item" data-name="Darshan Banquet" data-rating="4.5" data-price="250000">
+        <img src="../image/Darshan Banquet.jpg" alt="Darshan Banquet" />
+        <h3>Darshan Banquet</h3>
+        <p>Seat Capacity: Maximum 300 people</p>
+        <p>Space Preference: Indoor</p>
+        <p>Service Location: Sukedhara, Kathmandu</p>
+        <a href="./Darshan.html" class="details-btn">DETAILS</a>
+      </div>
 
-    <div class="venue-item">
-      <img src="../image/anupam1.jpg " alt="Smart Durbar Banquet">
-      <h3>Anupa Foodland Banquet</h3>
-      <p>Venue Type: Party Palace, Cafe</p>
-      <p>Space Preference: Indoor</p>
-      <p>Service Location: Battisputali, KTM</p>
-      <a href="./Anupam.html" class="details-btn">DETAILS</a>
-    </div>
-    
-    <div class="venue-item">
-      <img src="../image/modern1.jpg"Smart Durbar Banquet">
-      <h3> Modern Party Place</h3>
-      <p>Venue Type: Party Palace, </p>
-      <p>Space Preference: Indoor</p>
-      <p>Service Location: 	Kalanki, khasibazar/p>
-      <a href="./Modern.html" class="details-btn">DETAILS</a>
-    </div>
+      <div id="diyoBanquet" class="venue-item" data-name="Diyo Banquet" data-rating="3.5" data-price="250000">
+        <img src="../image/diyo1.jpg" alt="Diyo Banquet" />
+        <h3>Diyo Banquet</h3>
+        <p>Seat Capacity: Maximum 300 people</p>
+        <p>Space Preference: Indoor, Outdoor</p>
+        <p>Service Location: Dhumbarai, Kathmandu</p>
+        <a href="./Diyo.html" class="details-btn">DETAILS</a>
+      </div>
 
-    <div class="venue-item">
-      <img src="../image/mandala1.jpg"Smart Durbar Banquet">
-      <h3> Mandala Party Place</h3>
-      <p>Venue Type: Party Palace, </p>
-      <p>Space Preference: Indoor</p>
-      <p>Service Location: 	Kalanki, khasibazar/p>
-      <a href="./mandala.html" class="details-btn">DETAILS</a>
-    </div>
+      <div id="imperialPartyPalace" class="venue-item" data-name="Imperial Party Palace" data-rating="5" data-price="250000">
+        <img src="../image/imperial1.jpeg" alt="Imperial Party Palace" />
+        <h3>Imperial Party Palace</h3>
+        <p>Seat Capacity: 1000+ people</p>
+        <p>Space Preference: Indoor, Outdoor</p>
+        <p>Service Location: Chabahil, KL Tower, Kathmandu</p>
+        <a href="./Imperial.html" class="details-btn">DETAILS</a>
+      </div>
 
+      <div id="jadibutiIndreniBanquet" class="venue-item" data-name="Jadibuti Indreni Banquet" data-rating="3.5" data-price="250000">
+        <img src="../image/jaibuti Inderni Banquet.jpg" alt="Jadibuti Indreni Banquet" />
+        <h3>Jadibuti Indreni Banquet</h3>
+        <p>Seat Capacity: 300 people</p>
+        <p>Space Preference: Indoor</p>
+        <p>Service Location: Jadibuti, Kathmandu</p>
+        <a href="./Imperial.html" class="details-btn">DETAILS</a>
+      </div>
 
-    
+      <div id="modernPartyPalace" class="venue-item" data-name="Modern Party Palace" data-rating="4.8" data-price="250000">
+        <img src="../image/modern1.jpg" alt="Modern Party Palace" />
+        <h3>Modern Party Palace</h3>
+        <p>Seat Capacity: 600 people</p>
+        <p>Space Preference: Indoor, Outdoor</p>
+        <p>Service Location: Kalanki, Khasibazar</p>
+        <a href="./Miracle.html" class="details-btn">DETAILS</a>
+      </div>
 
-  </section>
-</main>
+      <div id="multiVenuePartyPalace" class="venue-item" data-name="Multi Venue Party Palace" data-rating="4.5" data-price="250000">
+        <img src="../image/multivennue1.jpeg" alt="Multi Venue Party Palace" />
+        <h3>Multi Venue Party Palace</h3>
+        <p>Seat Capacity: 700 people</p>
+        <p>Space Preference: Indoor, Outdoor</p>
+        <p>Service Location: Nayabazzar</p>
+        <a href="./multivennue.html" class="details-btn">DETAILS</a>
+      </div>
 
-        </section>
-    </main>
-    <footer class="footer">
+      <div id="nepaBanquet" class="venue-item" data-name="Nepa Banquet" data-rating="3.5" data-price="250000">
+        <img src="../image/nepabanquate.jpeg" alt="Nepa Banquet" />
+        <h3>Nepa Banquet</h3>
+        <p>Seat Capacity: 650 people</p>
+        <p>Space Preference: Indoor</p>
+        <p>Service Location: Nayabazzar</p>
+        <a href="./nepa.html" class="details-btn">DETAILS</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
     <div class="quick-links">
       <h2>Quick Links</h2>
       <ul>
-        <li>About Us</li>
-        <li>Contact Us</li>
-        <li>Terms & Conditions</li>
-        <li>Privacy Policy</li>
+        <li><a href="./About.html">About Us</a></li>
+        <li><a href="./Contact.html">Contact Us</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
       </ul>
     </div>
-    
+
     <div class="contact">
       <h2>Call now for Services!</h2>
       <p>9841642233</p>
@@ -180,9 +186,21 @@
       <p>&copy; 2025 laganMandap.com. All rights reserved.</p>
     </div>
   </footer>
-  <script src="./js/fliter.js"></script>
-    <script src="./js/venue.js"></script>
 
-   
+  <!-- ===== JS ===== -->
+  <script src="../js/fliter.js"></script>
+  <script src="../js/searchhander.js" defer></script>
+
+  <!-- Hamburger Menu Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    });
+  </script>
 </body>
 </html>

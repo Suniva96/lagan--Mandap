@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - LaganMandap</title>
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #fff5f5;
+      /* Add pattern image background */
+      background-image: url("../image/pooster.jpg");
+      background-repeat: repeat;
+      display: flex;
+      background-size: cover;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+    input:hover, input:focus {
+      box-shadow: 0 0 8px #982828;
+      outline: none;
+      border-color: #982828;
+    }
+    button {
+      background: #982828;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: #6e1e1e;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login to Book</h2>
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    function login() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (name && email) {
+        localStorage.setItem("user", JSON.stringify({ name, email }));
+        window.location.href = "./alisha.html"; 
+      } else {
+        alert("Please enter both name and email.");
+      }
+    }
+
+    // Auto-redirect if already logged in
+    if (localStorage.getItem("user")) {
+      window.location.href = "./alisha.html";
+    }
+  </script>
+</body>
+</html>

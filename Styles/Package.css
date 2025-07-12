@@ -1,179 +1,239 @@
-/* Base Styles */
+/* ===== Reset and Font ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Playfair Display', sans-serif;
-    background-color: #fff8f5;
-    color: #333;
-    margin: 0;
-    padding: 0;
+  font-family: 'Playfair Display', serif;
+  background-color: #fffaf5;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Header */
-.breadcrumb {
-  margin-top: 10px;
-  font-size: 1rem;
-  text-align: center;
+/* ===== Navbar ===== */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.breadcrumb a {
-  color:#d4af37;
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  height: auto;
+  width: 100px;
+}
+
+.navbar h1 {
+  font-size: 2rem;
+  color: #610e0e;
+  margin-left: 10px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #333;
   text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
-.breadcrumb span {
-  margin: 0 8px;
-  color:#c7a32e;
+.nav-links a:hover {
+  color: #610e0e;
 }
 
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
 
-/* Container */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
+
+/* ===== Main Container ===== */
 .container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
 }
 
-/* Title Section */
 .title {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .title h2 {
-    font-size: 32px;
-    color: #800000;
+  font-size: 3rem;
+  color: #610e0e;
+  margin-bottom: 0.5rem;
 }
 
 .title p {
-    font-size: 18px;
-    color: #555;
+  font-size: 2rem;
+  color:#8c1111;
 }
 
-/* Package Cards */
+/* ===== Packages ===== */
 .packages {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .package {
-    flex: 1 1 300px;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+  border: 1px solid #f3e8e0;
+  border-radius: 15px;
+  padding: 2rem;
+  flex: 1 1 30%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s;
 }
 
 .package:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
 }
 
 .package h3 {
-    color: #800000;
-    margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #610e0e;
+  margin-bottom: 1rem;
 }
 
 .package .price {
-    font-size: 20px;
-    font-weight: bold;
-    color: #444;
-    margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 .package ul {
-    list-style: none;
-    padding: 0;
+  list-style-type: disc;
+  margin-left: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #555;
 }
 
-.package ul li {
-    position: relative;
-    margin: 10px 0;
-    padding-left: 25px;
+.package li {
+  margin-bottom: 0.5rem;
 }
 
-.package ul li::before {
-    content: "\2713";
-    position: absolute;
-    left: 0;
-    color: #800000;
-    font-weight: bold;
-}
-
-/* CTA Button */
 .cta-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #800000;
-    color: #fff;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.3s;
+  background-color: #4f0a0a;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  display: inline-block;
 }
 
 .cta-button:hover {
-    background: #a00000;
+  background-color: #610e0e;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .packages {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-/* Footer */
+/* ===== Footer ===== */
 .footer {
-    background-color: #7c2d12;
-    color: #fff;
-    width: 100%;
-    padding: 2rem 8%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  background-color: #f8f1ec;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  color: #333;
 }
 
 .footer h2 {
-    margin-bottom: 1rem;
+  color: #b48a2c;
+  margin-bottom: 1rem;
 }
 
 .footer ul {
-    list-style: none;
-    padding: 0;
+  list-style-type: none;
 }
 
-.footer li {
-    margin-bottom: 10px;
+.footer ul li a {
+  text-decoration: none;
+  color: #444;
+  transition: color 0.3s;
 }
 
-.footer a {
-    color: #fff;
-    text-decoration: none;
+.footer ul li a:hover {
+  color: #d4af37;
 }
 
-.footer a:hover {
-    text-decoration: underline;
+.footer .footer-bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #777;
 }
 
-/* Footer Bottom */
+/* ===== Back to Top Button ===== */
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #d4af37;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: background-color 0.3s;
+}
 
-@media (max-width: 768px) {
-    .footer {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+#backToTop:hover {
+  background-color: #b48a2c;
+}
 
-    .footer > div {
-        width: 100%;
-        margin-bottom: 20px;
-    }
+/* ===== Responsive Packages ===== */
+@media (max-width: 992px) {
+  .packages {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .footer-bottom {
-        font-size: 0.8rem;
-    }
+  .package {
+    flex: 1 1 80%;
+  }
 }

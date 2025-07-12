@@ -7,77 +7,97 @@
 }
 
 body {
-  background-color: #fff8f0;
-  color: #4b2e2e;
+  background-color: #f9e6d0;
+  color: #eee6e6;
   line-height: 1.6;
 }
 
-/* ============ HEADER ============ */
-header {
-  background: #800000;
+/* ============ HEADER & NAVBAR ============ */
+header.navbar {
+  background:#f9e6d0;
   color: #fff;
-  padding: 20px;
-  text-align: center;
-  border-bottom: 5px solid #d4af37;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  width: 90px;
+  height: auto;
 }
 
 header h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: 2rem;
+  margin-left: 1rem;
+  flex-grow: 1;
+  color: #701414;
 }
 
-header h2 {
-  margin-top: 10px;
-  font-size: 1.5rem;
-  color: #f5d98c;
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* ============ SEARCH BAR ============ */
-.search-container {
-  margin: 20px auto;
-  text-align: center;
+.nav-links a {
+  background-color: #610e0e;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.search-container input[type="text"] {
-  padding: 10px;
-  width: 250px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.search-container button {
-  padding: 10px 20px;
-  background-color: #d4af37;
-  color: #4b2e2e;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.search-container button:hover {
+.nav-links a:hover {
   background-color: #c49b2e;
 }
 
-/* ============ BREADCRUMB NAVIGATION ============ */
-.breadcrumb {
-  text-align: center;
-  margin: 10px 0;
-  font-size: 1rem;
+/* ===== HAMBURGER MENU BUTTON ===== */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #c05757;
+  cursor: pointer;
 }
 
-.breadcrumb a {
-  color: #d4af37;
-  text-decoration: none;
+/* ===== SEARCH BAR ===== */
+.nav-search {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 2rem;
+  gap: 0.5rem;
 }
 
-.breadcrumb span {
-  margin: 0 8px;
-  color: #c7a32e;
+.nav-search input {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  width: 250px;
+  font-size: 14px;
 }
 
-/* ============ FILTER SIDEBAR (OPTIONAL IF USED) ============ */
+.nav-search i {
+  color: #888;
+  margin-left: -40px;
+  align-self: center;
+}
+
+/* ============ FILTER SIDEBAR ============ */
 .filter {
   background-color: #fef3e6;
   padding: 20px;
@@ -89,7 +109,7 @@ header h2 {
 .filter h3 {
   font-size: 1.3rem;
   margin-bottom: 15px;
-  color: #800000;
+  color: #a38989;
 }
 
 .filter input {
@@ -101,7 +121,7 @@ header h2 {
   border-radius: 5px;
 }
 
-/* ============ MAIN VENUE CONTENT ============ */
+/* ============ MAIN CONTENT ============ */
 main {
   padding: 20px;
   margin-left: 270px;
@@ -147,6 +167,14 @@ main {
   margin-bottom: 6px;
   color: #4b2e2e;
 }
+
+/* Highlight effect for searched venue */
+.highlight {
+  border-color: #c49b2e !important;
+  box-shadow: 0 0 15px 5px #c49b2e;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
 
 /* ============ DETAILS BUTTON ============ */
 .details-btn {
@@ -209,8 +237,31 @@ main {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.highlight {
+  box-shadow: 0 0 10px 3px gold;
+  transition: box-shadow 0.3s ease;
+}
+
+
 /* ============ RESPONSIVE DESIGN ============ */
 @media (max-width: 768px) {
+  /* Navbar */
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Filter */
   .filter {
     width: 100%;
     float: none;
@@ -218,6 +269,7 @@ main {
     border-bottom: 2px solid #e0c097;
   }
 
+  /* Main Content */
   main {
     margin-left: 0;
   }

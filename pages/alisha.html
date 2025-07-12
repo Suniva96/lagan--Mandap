@@ -2,69 +2,161 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Venue Booking</title>
+  <title>Venue Booking - LaganMandap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #620909;
-      font-family: 'Playfair Display', sans-serif;
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("../image/pooster.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    /* === NAVBAR === */
+    .navbar {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      height: 100vh;
+      background-color: rgba(79, 34, 34, 0.6);
+      padding: 15px 25px;
+      color: white;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 40px;
+      margin-right: 12px;
+    }
+
+    .navbar h1 {
+      font-size: 1.6rem;
       margin: 0;
     }
 
-    .form-container {
-      position: relative;
-      background-color: #e38080;
-      border-radius: 25px;
-      padding: 25px;
-      width: 350px;
-      box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
-    .form-container:hover {
-      transform: scale(1.02);
-      box-shadow: 0px 0px 25px rgba(0,0,0,0.3);
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffdede;
+    }
+
+    #logoutBtn {
+      background: #d24c4c;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #logoutBtn:hover {
+      background: #992828;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background-color: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        width: 200px;
+        padding: 15px;
+        border-radius: 0 0 0 10px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* === FORM === */
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      padding: 30px;
+      max-width: 450px;
+      margin: 40px auto 50px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
     }
 
     h2 {
+      text-align: center;
       margin-top: 0;
-      color: #1e1e1e;
     }
 
     .tagline {
+      text-align: center;
       font-style: italic;
-      font-size: 0.85em;
+      color: #7a2f2f;
       margin-bottom: 20px;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      text-align: left;
+      gap: 12px;
     }
 
     input, select, textarea {
-      width: 100%;
-      padding: 8px;
-      border: none;
-      border-radius: 5px;
-      transition: box-shadow 0.3s, transform 0.2s;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1.5px solid #ccc;
+      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
     }
 
-    input:hover, select:hover, textarea:hover {
-      box-shadow: 0 0 5px rgba(0,0,0,0.3);
-      transform: scale(1.02);
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #982828;
+      box-shadow: 0 0 5px rgba(152, 40, 40, 0.7);
     }
 
     .row {
       display: flex;
-      justify-content: space-between;
       gap: 10px;
     }
 
@@ -72,45 +164,71 @@
       flex: 1;
     }
 
-    button {
-      background-color: #982828;
+    button[type="submit"] {
+      background: #982828;
       color: white;
-      padding: 10px;
+      padding: 12px;
       border: none;
       border-radius: 10px;
-      margin-top: 10px;
-      cursor: pointer;
       font-weight: bold;
-      transition: background-color 0.3s, transform 0.2s;
+      font-size: 1.1rem;
+      cursor: pointer;
     }
 
-    button:hover {
+    button[type="submit"]:hover {
       background-color: #6e1e1e;
-      transform: scale(1.05);
     }
 
-    .corner {
-      position: absolute;
-      width: 40px;
-      height: 40px;
+    /* === BOOKINGS DISPLAY === */
+    #bookingList {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    .top-left {
-      top: 10px;
-      left: 10px;
+    #bookingList h3 {
+      text-align: center;
+      color: #982828;
     }
 
-    .bottom-right {
-      bottom: 10px;
-      right: 10px;
+    .booking-entry {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #fff0f0;
     }
   </style>
 </head>
 <body>
-  <div class="form-container">
-    <h2><b>Venue Booking</b></h2>
-    <p class="tagline">Booking process simple, experience Unforgettable</p>
 
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo-title">
+      <img src="../image/LOGo.png" alt="LaganMandap Logo" class="logo">
+      <h1>LaganMandap</h1>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html">Home</a>
+      <a href="./Venues.html">Venues</a>
+      <a href="./Packages.html">Packages</a>
+      <a href="./Contact.html">Contact</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <!-- FORM -->
+  <div class="form-container">
+    <h2>Venue Booking</h2>
+    <p class="tagline">Booking process simple, experience unforgettable</p>
     <form id="bookingForm">
       <label>Name</label>
       <input type="text" name="name" required />
@@ -123,7 +241,7 @@
 
       <div class="row">
         <div>
-          <label>Number of Guest</label>
+          <label>Guests</label>
           <select name="guests" required>
             <option value="">--Select--</option>
             <option value="250">250</option>
@@ -132,18 +250,18 @@
           </select>
         </div>
         <div>
-          <label>Number of Hall</label>
+          <label>Halls</label>
           <input type="number" name="halls" min="1" required />
         </div>
       </div>
 
       <div class="row">
         <div>
-          <label>Select Date</label>
+          <label>Date</label>
           <input type="date" name="date" required />
         </div>
         <div>
-          <label>Time Slot</label>
+          <label>Time</label>
           <input type="time" name="time" required />
         </div>
         <div>
@@ -159,11 +277,75 @@
     </form>
   </div>
 
+  <!-- BOOKINGS -->
+  <div id="bookingList">
+    <h3>Saved Bookings</h3>
+    <div id="bookingsContainer"></div>
+  </div>
+
+  <!-- SCRIPT -->
   <script>
+    // Redirect to login if not logged in
+    if (!localStorage.getItem("user")) {
+      window.location.href = "login.html";
+    }
+
+    // Hamburger toggle
+    document.getElementById("hamburger").addEventListener("click", function () {
+      document.getElementById("navLinks").classList.toggle("active");
+    });
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      localStorage.removeItem("user");
+      localStorage.removeItem("bookings");
+      alert("You have been logged out.");
+      window.location.href = "login.html";
+    });
+
+    // Render bookings
+    function renderBookings() {
+      const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+      const container = document.getElementById("bookingsContainer");
+      container.innerHTML = "";
+
+      if (bookings.length === 0) {
+        container.innerHTML = "<p style='text-align:center;'>No bookings found.</p>";
+        return;
+      }
+
+      bookings.forEach((b, index) => {
+        const div = document.createElement("div");
+        div.classList.add("booking-entry");
+        div.innerHTML = `
+          <strong>#${index + 1} - ${b.name}</strong> (${b.email})<br>
+          Venue: <b>${b.venue}</b><br>
+          Guests: ${b.guests} | Halls: ${b.halls}<br>
+          Date: ${b.date}, Time: ${b.time}<br>
+          Package: ${b.package || 'N/A'}<br>
+          Request: ${b.request || 'None'}
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Save booking
     document.getElementById('bookingForm').addEventListener('submit', function(event) {
       event.preventDefault();
+      const formData = new FormData(this);
+      const booking = {};
+      formData.forEach((value, key) => booking[key] = value);
+
+      const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+      bookings.push(booking);
+      localStorage.setItem("bookings", JSON.stringify(bookings));
+
       alert('Booking Confirmed!');
+      this.reset();
+      renderBookings();
     });
+
+    window.addEventListener("DOMContentLoaded", renderBookings);
   </script>
 </body>
 </html>

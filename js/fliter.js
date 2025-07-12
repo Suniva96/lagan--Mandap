@@ -1,64 +1,25 @@
-// Modal elements
-const modal = document.getElementById("venueModal");
-const modalDetails = document.getElementById("modal-details");
-const closeBtn = document.querySelector(".close-btn");
-
-// Open modal on DETAILS button click
-document.querySelectorAll(".details-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const venue = btn.parentElement;
-
-    const name = venue.querySelector("h4").innerText;
-    const info = Array.from(venue.querySelectorAll("p"))
-      .map((p) => `<p>${p.innerText}</p>`)
-      .join("");
-
-    const image = venue.querySelector("img").outerHTML;
-
-    modalDetails.innerHTML = `
-      <h2>${name}</h2>
-      ${image}
-      ${info}
-      <p>More features coming soon!</p>
-    `;
-
-    modal.style.display = "block";
-  });
+// HAMBURGER MENU TOGGLE
+document.getElementById("menu-toggle").addEventListener("click", () => {
+  const nav = document.getElementById("nav-links");
+  nav.classList.toggle("active");
 });
 
-// Close modal on X
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-// Close modal on click outside content
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
-
-// Filter inputs and button
-const searchInput = document.getElementById("search");
-const searchBtn = document.getElementById("search-btn");
-const ratingInput = document.getElementById("filter-rating");
-const priceInput = document.getElementById("filter-price");
-
-// Filtering function
+// FILTER FUNCTION
 function filterVenues() {
-  const searchVal = searchInput.value.toLowerCase();
-  const ratingVal = ratingInput.value;
-  const priceVal = priceInput.value.toLowerCase();
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const rating = parseFloat(document.getElementById("ratingInput").value) || 0;
+  const maxPrice = parseInt(document.getElementById("priceInput").value) || Infinity;
 
-  document.querySelectorAll(".venue-item").forEach((venue) => {
-    const name = venue.querySelector("h4").innerText.toLowerCase();
-    const text = venue.innerText.toLowerCase();
-    const rating = venue.getAttribute("data-rating") || "";
-    const price = venue.getAttribute("data-price") || "";
+  const venues = document.querySelectorAll(".venue-item");
 
-    const matchesSearch = name.includes(searchVal) || text.includes(searchVal);
-    const matchesRating = !ratingVal || parseInt(rating) >= parseInt(ratingVal);
-    const matchesPrice = !priceVal || price === priceVal;
+  venues.forEach(venue => {
+    const name = venue.dataset.name.toLowerCase();
+    const venueRating = parseFloat(venue.dataset.rating);
+    const price = parseInt(venue.dataset.price);
+
+    const matchesSearch = name.includes(search);
+    const matchesRating = venueRating >= rating;
+    const matchesPrice = price <= maxPrice;
 
     if (matchesSearch && matchesRating && matchesPrice) {
       venue.style.display = "block";
@@ -68,17 +29,7 @@ function filterVenues() {
   });
 }
 
-// Filter on search button click
-searchBtn.addEventListener("click", filterVenues);
-
-// Filter on Enter key in search input
-searchInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    filterVenues();
-  }
-});
-
-// Filter live on rating or price change
-ratingInput.addEventListener("input", filterVenues);
-priceInput.addEventListener("change", filterVenues);
+// LISTEN TO FILTER INPUTS
+document.getElementById("searchInput").addEventListener("input", filterVenues);
+document.getElementById("ratingInput").addEventListener("input", filterVenues);
+document.getElementById("priceInput").addEventListener("input", filterVenues);

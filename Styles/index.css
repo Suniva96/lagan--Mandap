@@ -122,6 +122,48 @@ body {
   color: #888;
 }
 
+/* Add this to your index.css */
+
+/* Hamburger Button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #701414;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-container {
+    flex-wrap: wrap;
+  }
+
+  .nav-search {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+
 
 /* ================= HERO SECTION ================= */
 .container {
