@@ -238,7 +238,7 @@ main {
 }
 
 .highlight {
-  box-shadow: 0 0 10px 3px gold;
+  box-shadow: 0 0 10px 3px rgb(143, 32, 4);
   transition: box-shadow 0.3s ease;
 }
 

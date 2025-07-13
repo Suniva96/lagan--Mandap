@@ -1,35 +1,40 @@
-// HAMBURGER MENU TOGGLE
-document.getElementById("menu-toggle").addEventListener("click", () => {
-  const nav = document.getElementById("nav-links");
-  nav.classList.toggle("active");
-});
-
-// FILTER FUNCTION
+// Function to filter the venue list based on rating and price
 function filterVenues() {
-  const search = document.getElementById("searchInput").value.toLowerCase();
-  const rating = parseFloat(document.getElementById("ratingInput").value) || 0;
-  const maxPrice = parseInt(document.getElementById("priceInput").value) || Infinity;
+  const rating = document.getElementById('ratingInput').value;
+  const price = document.getElementById('priceInput').value;
 
-  const venues = document.querySelectorAll(".venue-item");
+  // Get all the venue items
+  const venueItems = document.querySelectorAll('.venue-item');
 
-  venues.forEach(venue => {
-    const name = venue.dataset.name.toLowerCase();
-    const venueRating = parseFloat(venue.dataset.rating);
-    const price = parseInt(venue.dataset.price);
+  venueItems.forEach(item => {
+    const itemRating = parseFloat(item.getAttribute('data-rating')); // parse the rating as a float
+    const itemPrice = parseInt(item.getAttribute('data-price')); // parse the price as an integer
+    
+    // Check if the venue matches the filter criteria
+    const matchesRating = rating ? itemRating >= parseFloat(rating) : true;
+    const matchesPrice = price ? itemPrice <= parseInt(price) : true;
 
-    const matchesSearch = name.includes(search);
-    const matchesRating = venueRating >= rating;
-    const matchesPrice = price <= maxPrice;
-
-    if (matchesSearch && matchesRating && matchesPrice) {
-      venue.style.display = "block";
+    if (matchesRating && matchesPrice) {
+      item.style.display = 'block'; // Show the item
     } else {
-      venue.style.display = "none";
+      item.style.display = 'none'; // Hide the item
     }
   });
 }
 
-// LISTEN TO FILTER INPUTS
-document.getElementById("searchInput").addEventListener("input", filterVenues);
-document.getElementById("ratingInput").addEventListener("input", filterVenues);
-document.getElementById("priceInput").addEventListener("input", filterVenues);
+// Event listeners for filter inputs
+document.getElementById('ratingInput').addEventListener('input', filterVenues);
+document.getElementById('priceInput').addEventListener('input', filterVenues);
+
+// Clear Filters Button functionality
+document.getElementById('clearFiltersBtn').addEventListener('click', () => {
+  // Reset filter inputs
+  document.getElementById('ratingInput').value = '';
+  document.getElementById('priceInput').value = '';
+
+  // Reset all venue items to visible
+  const venueItems = document.querySelectorAll('.venue-item');
+  venueItems.forEach(item => {
+    item.style.display = 'block'; // Show all items
+  });
+});
