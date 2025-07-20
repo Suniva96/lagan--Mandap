@@ -209,10 +209,10 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
+   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo-title">
-      <img src="../image/LOGo.png" alt="LaganMandap Logo" class="logo">
+      <img src="../image/LOGo.png" alt="LaganMandap Logo" class="logo" />
       <h1>LaganMandap</h1>
     </div>
 
@@ -226,10 +226,10 @@
       <a href="./Packages.html">Packages</a>
       <a href="./Contact.html">Contact</a>
       <button id="logoutBtn">Logout</button>
-      <!-- Added Button -->
-    
     </div>
   </nav>
+
+  <div id="greeting"></div>
 
   <!-- FORM -->
   <div class="form-container">
@@ -282,69 +282,101 @@
       <button type="submit">Confirm Booking</button>
     </form>
   </div>
-  <!-- SCRIPT -->
+
   <script>
-    // Redirect to login if not logged in
-    if (!localStorage.getItem("user")) {
-      window.location.href = "loginn.html";
-    }
-
-    // Hamburger toggle
-    document.getElementById("hamburger").addEventListener("click", function () {
-      document.getElementById("navLinks").classList.toggle("active");
-    });
-
-    // Logout
-    document.getElementById("logoutBtn").addEventListener("click", function () {
-      localStorage.removeItem("user");
-      localStorage.removeItem("bookings");
-      alert("You have been logged out.");
-      window.location.href = "loginn.html";
-    });
-
-    // Render bookings
-    function renderBookings() {
-      const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-      const container = document.getElementById("bookingsContainer");
-      container.innerHTML = "";
-
-      if (bookings.length === 0) {
-        container.innerHTML = "<p style='text-align:center;'>No bookings found.</p>";
+    window.addEventListener("DOMContentLoaded", () => {
+      const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      if (!loggedInUser) {
+        alert("Please login first.");
+        window.location.href = "loginn.html";
         return;
       }
 
-      bookings.forEach((b, index) => {
-        const div = document.createElement("div");
-        div.classList.add("booking-entry");
-        div.innerHTML = `
-          <strong>#${index + 1} - ${b.name}</strong> (${b.email})<br>
-          Venue: <b>${b.venue}</b><br>
-          Guests: ${b.guests} | Halls: ${b.halls}<br>
-          Date: ${b.date}, Time: ${b.time}<br>
-          Package: ${b.package || 'N/A'}<br>
-          Request: ${b.request || 'None'}
-        `;
-        container.appendChild(div);
+      // Show greeting with user's name
+      document.getElementById("greeting").textContent = `Welcome, ${loggedInUser.name}!`;
+
+      // Pre-fill form name and email with logged in user's data
+      const form = document.getElementById('bookingForm');
+      form.name.value = loggedInUser.name;
+      form.email.value = loggedInUser.email;
+
+      // Hamburger toggle
+      document.getElementById("hamburger").addEventListener("click", () => {
+        document.getElementById("navLinks").classList.toggle("active");
       });
-    }
 
-    // Save booking
-    document.getElementById('bookingForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const formData = new FormData(this);
-      const booking = {};
-      formData.forEach((value, key) => booking[key] = value);
+      // Logout button functionality
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("loggedInUser");
+        localStorage.removeItem("bookings");
+        alert("You have been logged out.");
+        window.location.href = "loginn.html";
+      });
 
-      const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-      bookings.push(booking);
-      localStorage.setItem("bookings", JSON.stringify(bookings));
+      // Render bookings
+      function renderBookings() {
+        const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+        const container = document.getElementById("bookingsContainer");
+        if (!container) return; // If you have container in future
 
-      alert('Booking Confirmed!');
-      this.reset();
+        container.innerHTML = "";
+
+        if (bookings.length === 0) {
+          container.innerHTML = "<p style='text-align:center;'>No bookings found.</p>";
+          return;
+        }
+
+        bookings.forEach((b, index) => {
+          const div = document.createElement("div");
+          div.classList.add("booking-entry");
+          div.innerHTML = `
+            <strong>#${index + 1} - ${b.name}</strong> (${b.email})<br>
+            Venue: <b>${b.venue}</b><br>
+            Guests: ${b.guests} | Halls: ${b.halls}<br>
+            Date: ${b.date}, Time: ${b.time}<br>
+            Package: ${b.package || 'N/A'}<br>
+            Request: ${b.request || 'None'}
+          `;
+          container.appendChild(div);
+        });
+      }
+
+      // Save booking
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Double-check user is logged in before booking
+        const user = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (!user) {
+          alert("Session expired. Please login again.");
+          window.location.href = "loginn.html";
+          return;
+        }
+
+        const formData = new FormData(this);
+        const booking = {};
+        formData.forEach((value, key) => booking[key] = value);
+
+        // Overwrite name/email with logged in user data for security
+        booking.name = user.name;
+        booking.email = user.email;
+
+        const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+        bookings.push(booking);
+        localStorage.setItem("bookings", JSON.stringify(bookings));
+
+        alert('Booking Confirmed!');
+        this.reset();
+
+        // Reset name and email to logged user info after reset
+        this.name.value = user.name;
+        this.email.value = user.email;
+
+        renderBookings();
+      });
+
       renderBookings();
     });
-
-    window.addEventListener("DOMContentLoaded", renderBookings);
   </script>
 </body>
 </html>
