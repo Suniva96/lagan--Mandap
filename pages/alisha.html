@@ -22,11 +22,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: rgba(79, 34, 34, 0.6);
+      background-color: #fff;
       padding: 15px 25px;
-      color: white;
+      color: rgb(31, 27, 27);
       position: relative;
       z-index: 1000;
+      gap: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .logo-title {
@@ -35,31 +37,53 @@
     }
 
     .logo {
-      height: 40px;
+      height: 70px;
       margin-right: 12px;
     }
 
     .navbar h1 {
       font-size: 1.6rem;
       margin: 0;
+      color:  #751401;;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 10px;
     }
 
     .nav-links a {
-      color: white;
+      color: rgb(31, 27, 27);
       text-decoration: none;
       font-weight: bold;
       font-size: 1rem;
-      transition: color 0.3s;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     .nav-links a:hover {
-      color: #ffdede;
+      background-color: #c49b2e;
+      color: white;
+    }
+
+    /* New Navbar Button Style */
+    .nav-button {
+      background-color: #7a2f2f;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .nav-button:hover {
+      background-color: #c49b2e;
+      color: white;
     }
 
     #logoutBtn {
@@ -86,7 +110,7 @@
     .hamburger span {
       height: 3px;
       width: 25px;
-      background-color: white;
+      background-color: #1f1b1b;
       margin: 4px 0;
       border-radius: 2px;
     }
@@ -143,10 +167,12 @@
 
     input, select, textarea {
       padding: 10px;
-      border-radius: 8px;
+      border-radius: 5px;
       border: 1.5px solid #ccc;
       font-size: 1rem;
       font-family: 'Playfair Display', serif;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     input:focus, select:focus, textarea:focus {
@@ -173,33 +199,11 @@
       font-weight: bold;
       font-size: 1.1rem;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     button[type="submit"]:hover {
       background-color: #6e1e1e;
-    }
-
-    /* === BOOKINGS DISPLAY === */
-    #bookingList {
-      max-width: 700px;
-      margin: 0 auto 40px;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    #bookingList h3 {
-      text-align: center;
-      color: #982828;
-    }
-
-    .booking-entry {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 10px;
-      background-color: #fff0f0;
     }
   </style>
 </head>
@@ -222,6 +226,8 @@
       <a href="./Packages.html">Packages</a>
       <a href="./Contact.html">Contact</a>
       <button id="logoutBtn">Logout</button>
+      <!-- Added Button -->
+    
     </div>
   </nav>
 
@@ -276,18 +282,11 @@
       <button type="submit">Confirm Booking</button>
     </form>
   </div>
-
-  <!-- BOOKINGS -->
-  <div id="bookingList">
-    <h3>Saved Bookings</h3>
-    <div id="bookingsContainer"></div>
-  </div>
-
   <!-- SCRIPT -->
   <script>
     // Redirect to login if not logged in
     if (!localStorage.getItem("user")) {
-      window.location.href = "login.html";
+      window.location.href = "loginn.html";
     }
 
     // Hamburger toggle
@@ -300,7 +299,7 @@
       localStorage.removeItem("user");
       localStorage.removeItem("bookings");
       alert("You have been logged out.");
-      window.location.href = "login.html";
+      window.location.href = "loginn.html";
     });
 
     // Render bookings

@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Packages & Pricing - LaganMandap</title>
-  <link rel="stylesheet" href="../Styles/Package.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="../Styles/Package.css" />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
 </head>
 <body>
-
   <!-- ===== NAVBAR ===== -->
   <header class="navbar">
     <div class="navbar-container">
@@ -17,7 +23,7 @@
       </div>
       <h1>Lagan Mandap</h1>
 
-      <button class="menu-toggle" id="menu-toggle">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
         <i class="fas fa-bars"></i>
       </button>
 
@@ -30,8 +36,6 @@
       </nav>
     </div>
   </header>
-
-
 
   <!-- ===== MAIN CONTENT ===== -->
   <main class="container">
@@ -104,28 +108,16 @@
       <p>&copy; 2025 LaganMandap.com. All rights reserved.</p>
     </div>
   </footer>
-
-  <!-- ===== BACK TO TOP BUTTON ===== -->
-  <button id="backToTop" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
-
   <!-- ===== SCRIPT SECTION ===== -->
   <script>
-    // Navbar menu toggle
-    document.getElementById("menu-toggle").onclick = () => {
-      document.getElementById("nav-links").classList.toggle("show");
-    };
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleBtn = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
 
-    // Back to top button
-    const backToTop = document.getElementById("backToTop");
-    window.onscroll = function () {
-      backToTop.style.display =
-        document.body.scrollTop > 300 || document.documentElement.scrollTop > 300
-          ? "block"
-          : "none";
-    };
-    backToTop.onclick = () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+      toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    });
   </script>
 </body>
 </html>

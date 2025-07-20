@@ -58,12 +58,22 @@
 
   <!-- ===== HERO SECTION ===== -->
   <section class="container">
-    <div class="overlay">
-      <h2>Find your dream wedding</h2>
-      <p>Cherish your wonderful days with elegance and joy</p>
-      <a href="./pages/Venues.html" class="btn">View Venues</a>
-    </div>
-  </section>
+  <div class="slider-track">
+    <img src="./image/thumb.jpeg" alt="Venue 1" class="slider-img" />
+    <img src="./image/image2.jpg" alt="Venue 2" class="slider-img" />
+    <img src="./image/image4.jpg" alt="Venue 3" class="slider-img" />
+    <img src="./image/image3.jpg" alt="Venue 4" class="slider-img" />
+    <img src="./image/heart.jpg"  alt="vennue5" class="slider-img" />
+    <img src="./image/groom.jpeg"  alt="vennue5" class="slider-img" />
+    <img src="./image/bride.jpeg"  alt="vennue5" class="slider-img" />
+  </div>
+
+  <div class="overlay">
+    <h2>Find your dream wedding</h2>
+    <p>Cherish your wonderful days with elegance and joy</p>
+    <a href="./pages/Venues.html" class="button">View Venue Detail</a>
+  </div>
+</section>
 
   <!-- ===== ABOUT PREVIEW SECTION ===== -->
   <section class="about-preview">
@@ -148,10 +158,9 @@
     </div>
   </footer>
 
-  <!-- ===== SCROLL TO TOP BUTTON ===== -->
-  <a href="#" class="scroll-top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+  
 
-  <!-- Hamburger menu script -->
+    <!-- Hamburger menu script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const toggleBtn = document.getElementById("menu-toggle");
@@ -160,6 +169,18 @@
       toggleBtn.addEventListener("click", () => {
         navLinks.classList.toggle("active");
       });
+
+      // Slider script
+      const track = document.querySelector('.slider-track');
+      const totalImages = document.querySelectorAll('.slider-img').length;
+      let currentIndex = 0;
+
+      function slide() {
+        currentIndex = (currentIndex + 1) % totalImages;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      setInterval(slide, 5000); // slide every 3 seconds
     });
   </script>
   <script src="./js/searchhander.js" defer></script>

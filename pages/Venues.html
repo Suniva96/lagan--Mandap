@@ -31,28 +31,28 @@
         <a href="./alisha.html"><i class="fa-solid fa-user"></i> Book Now</a>
       </nav>
     </div>
-
-    <!-- Search box and clear button -->
-    <div class="nav-search" style="margin-top: 0.5rem; padding: 0 1rem;">
-      <input type="text" id="globalSearch" placeholder="Search by venue name..." autocomplete="off" />
-    </div>
-    <div id="message"></div>
   </header>
 
-  <!-- ===== FILTER SECTION ===== -->
+  <!-- ===== SEARCH BAR (under navbar) ===== -->
+  <section class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for a venue..." />
+  </section>
+
+  <!-- ===== FILTER BAR ===== -->
   <aside class="filter">
     <h3>Filter</h3>
     <input type="number" id="ratingInput" placeholder="Minimum Rating (1-5)" min="1" max="5" />
     <input type="number" id="priceInput" placeholder="Max Price (e.g. 50000)" />
+    <button id="clearFiltersBtn">Clear Filters</button>
   </aside>
 
   <!-- ===== MAIN CONTENT ===== -->
   <main>
     <section class="venue-list" id="venue-list">
+      <!-- All venue items below with data-capacity removed -->
       <div id="imadolBanquet" class="venue-item" data-name="Imadol Banquet" data-rating="5" data-price="60000">
         <img src="../image/Imadol Banquet.jpg" alt="Imadol Banquet" />
         <h3>Imadol Banquet</h3>
-        <p>Seat Capacity: 800 people</p>
         <p>Venue Type: Party Palace</p>
         <p>Space Preference: Indoor, Outdoor</p>
         <p>Service Location: Lalitpur</p>
@@ -60,18 +60,16 @@
       </div>
 
       <div id="smartDurbarBanquet" class="venue-item" data-name="Smart Durbar Banquet" data-rating="5" data-price="250000">
-        <img src="../image/smartimage1" alt="Smart Durbar Banquet" />
+        <img src="../image/smartimage4.png" alt="Smart Durbar Banquet" />
         <h3>Smart Durbar Banquet</h3>
-        <p>Seat Capacity: 1500 people</p>
         <p>Space Preference: Indoor, Outdoor</p>
         <p>Service Location: Dhumbarahi</p>
         <a href="./smart.html" class="details-btn">DETAILS</a>
       </div>
 
-      <div id="swayambhuStarBanquet" class="venue-item" data-name="Swayambhu Star Banquet" data-rating="3" data-price="50000">
+      <div id="swayambhuStarBanquet" class="venue-item" data-name="Swayambhu Star Banquet" data-rating="3.5" data-price="50000">
         <img src="../image/sawyubhu4.jpeg" alt="Swayambhu Star Banquet" />
         <h3>Swayambhu Star Banquet</h3>
-        <p>Seat Capacity: Maximum 500 people</p>
         <p>Space Preference: Indoor</p>
         <p>Service Location: Swayambhu</p>
         <a href="./Sawyambu.html" class="details-btn">DETAILS</a>
@@ -80,7 +78,6 @@
       <div id="anupamFoodlandBanquet" class="venue-item" data-name="Anupam Foodland & Banquet" data-rating="3" data-price="150000">
         <img src="../image/anupam1.jpg" alt="Anupam Foodland & Banquet" />
         <h3>Anupam Foodland & Banquet</h3>
-        <p>Seat Capacity: Maximum 800 people</p>
         <p>Space Preference: Indoor</p>
         <p>Service Location: Swayambhu</p>
         <a href="./Anupam.html" class="details-btn">DETAILS</a>
@@ -89,16 +86,14 @@
       <div id="binayakMultiVenue" class="venue-item" data-name="Binayak Multi Venue" data-rating="4" data-price="90000">
         <img src="../image/binayak1.jpeg" alt="Binayak Multi Venue" />
         <h3>Binayak Multi Venue</h3>
-        <p>Seat Capacity: Maximum 300 people</p>
         <p>Space Preference: Indoor</p>
         <p>Service Location: Dhumbarai, Basundhara</p>
         <a href="./Binayak.html" class="details-btn">DETAILS</a>
       </div>
 
       <div id="darshanBanquet" class="venue-item" data-name="Darshan Banquet" data-rating="4.5" data-price="80000">
-        <img src="../image/Darshan Banquet.jpg" alt="Darshan Banquet" />
+        <img src="../image/darshan.jpg" alt="Darshan Banquet" />
         <h3>Darshan Banquet</h3>
-        <p>Seat Capacity: Maximum 300 people</p>
         <p>Space Preference: Indoor</p>
         <p>Service Location: Sukedhara, Kathmandu</p>
         <a href="./Darshan.html" class="details-btn">DETAILS</a>
@@ -107,7 +102,6 @@
       <div id="diyoBanquet" class="venue-item" data-name="Diyo Banquet" data-rating="3.5" data-price="70000">
         <img src="../image/diyo1.jpg" alt="Diyo Banquet" />
         <h3>Diyo Banquet</h3>
-        <p>Seat Capacity: Maximum 300 people</p>
         <p>Space Preference: Indoor, Outdoor</p>
         <p>Service Location: Dhumbarai, Kathmandu</p>
         <a href="./Diyo.html" class="details-btn">DETAILS</a>
@@ -125,7 +119,6 @@
       <div id="jadibutiIndreniBanquet" class="venue-item" data-name="Jadibuti Indreni Banquet" data-rating="3.5" data-price="20000">
         <img src="../image/jaibuti Inderni Banquet.jpg" alt="Jadibuti Indreni Banquet" />
         <h3>Jadibuti Indreni Banquet</h3>
-        <p>Seat Capacity: 300 people</p>
         <p>Space Preference: Indoor</p>
         <p>Service Location: Jadibuti, Kathmandu</p>
         <a href="./Imperial.html" class="details-btn">DETAILS</a>
@@ -143,7 +136,6 @@
       <div id="multiVenuePartyPalace" class="venue-item" data-name="Multi Venue Party Palace" data-rating="4.5" data-price="250000">
         <img src="../image/multivennue1.jpeg" alt="Multi Venue Party Palace" />
         <h3>Multi Venue Party Palace</h3>
-        <p>Seat Capacity: 700 people</p>
         <p>Space Preference: Indoor, Outdoor</p>
         <p>Service Location: Nayabazzar</p>
         <a href="./multivennue.html" class="details-btn">DETAILS</a>

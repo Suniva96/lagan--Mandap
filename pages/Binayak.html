@@ -8,298 +8,18 @@
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      background-color: #fff9f5;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    /* ====== Navbar ====== */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #fffaf5;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      flex-wrap: wrap;
-    }
-
-    .navbar .logo img {
-      width: 100px;
-      height: auto;
-    }
-
-    .navbar h1 {
-      font-size: 1.8rem;
-      color: #610e0e;
-      font-weight: 600;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .nav-links a {
-      background-color: #7c2d12;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 20px;
-      font-size: 1rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: background-color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      background-color: #5a1f0c;
-    }
-
-    /* ====== Layout ====== */
-    .container {
-      display: flex;
-      gap: 30px;
-      padding: 30px;
-      flex-wrap: wrap;
-    }
-
-    .left, .right {
-      flex: 1 1 45%;
-    }
-
-    .venue-img {
-      width: 100%;
-      height: 430px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    .facilities {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      font-size: 15px;
-      margin-top: 10px;
-    }
-
-    .details-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    .details-table td {
-      padding: 8px;
-      font-size: 15px;
-    }
-
-    .button, .details-button {
-      display: inline-block;
-      margin-top: 20px;
-      margin-right: 10px;
-      padding: 10px 18px;
-      background-color: #800000;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s ease;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .button:hover, .details-button:hover {
-      background-color: #a72b2b;
-    }
-
-    .gallery, .vendors {
-      padding: 30px;
-    }
-
-    .gallery h3, .vendors h3 {
-      color: #800000;
-      margin-bottom: 15px;
-    }
-
-    .gallery-images {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .gallery-images img {
-      width: 220px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .vendor-cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .vendor-card {
-      background: #fff;
-      padding: 15px;
-      width: 220px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: 0.3s ease;
-    }
-
-    .vendor-card img {
-      width: 100%;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-
-    .vendor-card h4 {
-      font-size: 16px;
-      color: #800000;
-    }
-
-    .vendor-card p {
-      font-size: 14px;
-    }
-
-    .vendor-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-    }
-
-    .gallery-images img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    /* ====== Footer ====== */
-    .footer {
-      background-color: #7c2d12;
-      color: white;
-      width: 100%;
-      padding: 2rem 8%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .footer ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .footer li {
-      margin-bottom: 10px;
-    }
-
-    .footer h2 {
-      margin-bottom: 1rem;
-    }
-
-    .footer a {
-      color: white;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-bottom {
-      width: 100%;
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    /* ====== Responsive ====== */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-
-      .vendor-cards {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .vendor-card {
-        width: 90%;
-      }
-
-      .gallery-images {
-        justify-content: center;
-      }
-
-      .gallery-images img {
-        width: 100%;
-        max-width: 320px;
-      }
-
-      .footer {
-        flex-direction: column;
-        gap: 20px;
-      }
-    }
-
-    /* Back to Top Button */
-    #backToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 25px;
-      padding: 10px 15px;
-      background-color: #800000;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      z-index: 1001;
-      font-size: 18px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    #backToTop:hover {
-      background-color: #a72b2b;
-    }
-  </style>
+    <link rel="stylesheet" href="../Styles/pages.css" />
 </head>
 <body>
 
   <header class="navbar">
     <div class="logo"><img src="../image/LOGo.png" alt="Lagan Mandap Logo"></div>
-    <h1> Mandap</h1>
+    <h1> Lagan Mandap</h1>
     <nav class="nav-links">
+      <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
       <a href="Venues.html"><i class="fa-solid fa-building"></i> Venues</a>
       <a href="Packages.html"><i class="fa-solid fa-tag"></i> Packages</a>
-      <a href="Contact.html"><i class="fa-solid fa-address-book"></i> Contact Us</a>
       <a href="About.html"><i class="fa-solid fa-circle-info"></i> About Us</a>
-      <a href="alisha.html"><i class="fa-solid fa-user"></i> Book Now</a>
     </nav>
   </header>
 <div class="container">
@@ -347,22 +67,30 @@
       <h4>Multi Vennue Banquet</h4>
       <p>Capacity: 500+</p>
       <p>Indoor, Outdoor</p>
-       <a href= "./multivennue.html" class="button"> Detaile </a>
+       <a href= "./multivennue.html" class="button"> Details </a>
     </div>
     <div class="vendor-card">
       <img src="../image/imadol1.jpeg" alt="Vendor 2">
       <h4>Imadol Banquet</h4>
       <p>Capacity: 300</p>
       <p>Indoor, Outdoor</p>
-       <a href= "./Imadol.html" class="button"> Detaile </a>
+       <a href= "./Imadol.html" class="button"> Details </a>
     </div>
     <div class="vendor-card">
-      <img src="../image/Darshan Banquet.jpg" alt="Vendor 3">
+      <img src="../image/darshan.jpg" alt="Vendor 3">
       <h4>Darshan Banquet</h4>
       <p>Capacity: 1200</p>
       <p>Indoor</p>
-       <a href= "./Darshan.html" class="button"> Detaile </a>
+       <a href= "./Darshan.html" class="button"> Details </a>
     </div>
+    <div class="vendor-card">
+        <img src="../image/nepabanquate.jpeg" alt="Nepa Banquet" />
+        <h3>Nepa Banquet</h3>
+        <p> Capacity: 650 people</p>
+        <p>Indoor</p>
+        <a href="./nepa.html" class="button">Details</a>
+      </div>
+
   </div>
 </div>
 
