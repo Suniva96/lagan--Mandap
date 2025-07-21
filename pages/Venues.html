@@ -33,18 +33,19 @@
     </div>
   </header>
 
-  <!-- ===== SEARCH BAR (under navbar) ===== -->
-  <section class="search-bar">
+  <div class="search-filter-container">
+  <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search for a venue..." />
-  </section>
-
-  <!-- ===== FILTER BAR ===== -->
+  </div>
   <aside class="filter">
     <h3>Filter</h3>
     <input type="number" id="ratingInput" placeholder="Minimum Rating (1-5)" min="1" max="5" />
     <input type="number" id="priceInput" placeholder="Max Price (e.g. 50000)" />
     <button id="clearFiltersBtn">Clear Filters</button>
   </aside>
+</div>
+
+
 
   <!-- ===== MAIN CONTENT ===== -->
   <main>
@@ -59,8 +60,36 @@
         <a href="./Imadol.html" class="details-btn">DETAILS</a>
       </div>
 
+      <div id="taajPalace" class="venue-item" data-name="Taaj Palace" data-rating="4.6" data-price="180000">
+  <img src="../image/taaj.jpg" alt="Taaj Palace Banquet" />
+  <h3>Taaj Palace</h3>
+  <p>Seat Capacity: 400+ people</p>
+  <p>Space Preference: Indoor Grand Hall</p>
+  <p>Service Location: Kalanki, Kathmandu</p>
+  <a href="./taaj.html" class="details-btn">DETAILS</a>
+</div>
+
+<div id="imadolBanquet" class="venue-item" data-name="Imadol Banquet" data-rating="4.3" data-price="130000">
+  <img src="../image/imadol1.jpeg" alt="Imadol Banquet" />
+  <h3>Imadol Banquet</h3>
+  <p>Seat Capacity: 350+ people</p>
+  <p>Space Preference: Indoor & Parking Lawn</p>
+  <p>Service Location: Imadol, Lalitpur</p>
+  <a href="./imadol.html" class="details-btn">DETAILS</a>
+</div>
+
+<div id="mandalaBanquet" class="venue-item" data-name="Mandala Banquet" data-rating="4.2" data-price="115000">
+  <img src="../image/mandala1.jpg" alt="Mandala Banquet" />
+  <h3>Mandala Banquet</h3>
+  <p>Seat Capacity: 300 people</p>
+  <p>Space Preference: Traditional Indoor Setup</p>
+  <p>Service Location: New Baneshwor, Kathmandu</p>
+  <a href="./mandala.html" class="details-btn">DETAILS</a>
+</div>
+
+
       <div id="smartDurbarBanquet" class="venue-item" data-name="Smart Durbar Banquet" data-rating="5" data-price="250000">
-        <img src="../image/smartimage4.png" alt="Smart Durbar Banquet" />
+        <img src="../image/Smartbanquet.jpg" alt="Smart Durbar Banquet" />
         <h3>Smart Durbar Banquet</h3>
         <p>Space Preference: Indoor, Outdoor</p>
         <p>Service Location: Dhumbarahi</p>
@@ -116,23 +145,7 @@
         <a href="./Imperial.html" class="details-btn">DETAILS</a>
       </div>
 
-      <div id="jadibutiIndreniBanquet" class="venue-item" data-name="Jadibuti Indreni Banquet" data-rating="3.5" data-price="20000">
-        <img src="../image/jaibuti Inderni Banquet.jpg" alt="Jadibuti Indreni Banquet" />
-        <h3>Jadibuti Indreni Banquet</h3>
-        <p>Space Preference: Indoor</p>
-        <p>Service Location: Jadibuti, Kathmandu</p>
-        <a href="./Imperial.html" class="details-btn">DETAILS</a>
-      </div>
-
-      <div id="modernPartyPalace" class="venue-item" data-name="Modern Party Palace" data-rating="4.8" data-price="250000">
-        <img src="../image/modern1.jpg" alt="Modern Party Palace" />
-        <h3>Modern Party Palace</h3>
-        <p>Seat Capacity: 600 people</p>
-        <p>Space Preference: Indoor, Outdoor</p>
-        <p>Service Location: Kalanki, Khasibazar</p>
-        <a href="./Miracle.html" class="details-btn">DETAILS</a>
-      </div>
-
+     
       <div id="multiVenuePartyPalace" class="venue-item" data-name="Multi Venue Party Palace" data-rating="4.5" data-price="250000">
         <img src="../image/multivennue1.jpeg" alt="Multi Venue Party Palace" />
         <h3>Multi Venue Party Palace</h3>
@@ -140,6 +153,79 @@
         <p>Service Location: Nayabazzar</p>
         <a href="./multivennue.html" class="details-btn">DETAILS</a>
       </div>
+
+      <div id="balajuBanquet" class="venue-item" data-name="Balaju Banquet" data-rating="4" data-price="120000">
+    <img src="../image/balaji1.jpg" alt="Balaju Banquet" />
+    <h3>Balaju Banquet</h3>
+    <p>Seat Capacity: 500+ people</p>
+   <p>Space Preference: Indoor, Outdoor</p>
+   <p>Service Location: Balaju, Kathmandu</p>
+   <a href="./Balaju.html" class="details-btn">DETAILS</a>
+ </div>
+
+ <div id="sasaBanquet" class="venue-item" data-name="Sasa Banquet" data-rating="4.2" data-price="100000">
+  <img src="../image/sasa1.jpg" alt="Sasa Banquet" />
+  <h3>Sasa Banquet</h3>
+  <p>Seat Capacity: 400 people</p>
+  <p>Space Preference: Indoor</p>
+  <p>Service Location: Banasthali, Kathmandu</p>
+  <a href="./Sasa.html" class="details-btn">DETAILS</a>
+ </div>
+
+ <div id="dhumbaraiBanquet" class="venue-item" data-name="Dhumbarai Banquet" data-rating="4.3" data-price="130000">
+  <img src="../image/dumbarai.jpg" alt="Dhumbarai Banquet" />
+  <h3>Dhumbarai Banquet</h3>
+  <p>Seat Capacity: 400+ people</p>
+  <p>Space Preference: Indoor</p>
+  <p>Service Location: Dhumbarai, Kathmandu</p>
+  <a href="./dhumbarai.html" class="details-btn">DETAILS</a>
+</div>
+
+<div id="loardBanquet" class="venue-item" data-name="Loard Banquet" data-rating="4.1" data-price="125000">
+  <img src="../image/loard place.jpg" alt="Loard Banquet" />
+  <h3>Loard Banquet</h3>
+  <p>Seat Capacity: 500 people</p>
+  <p>Space Preference: Indoor, Outdoor</p>
+  <p>Service Location: Boudha, Kathmandu</p>
+  <a href="./loard.html" class="details-btn">DETAILS</a>
+</div>
+
+<div id="kundaliniBanquet" class="venue-item" data-name="Kundalini Banquet" data-rating="4.0" data-price="110000">
+  <img src="../image/kundali.jpeg" alt="Kundalini Banquet" />
+  <h3>Kundalini Banquet</h3>
+  <p>Seat Capacity: 300 people</p>
+  <p>Space Preference: Indoor</p>
+  <p>Service Location: Hattiban, Lalitpur</p>
+  <a href="./kundalini.html" class="details-btn">DETAILS</a>
+</div>
+
+<div id="accordCafe" class="venue-item" data-name="Accord Cafe & Restaurant" data-rating="4.5" data-price="95000">
+  <img src="../image/accord1.jpg" alt="Accord Cafe & Restaurant" />
+  <h3>Accord Cafe & Restaurant</h3>
+  <p>Seat Capacity: 150 Indoor, 100 Outdoor</p>
+  <p>Space Preference: Both Indoor & Outdoor</p>
+  <p>Service Location: Maharajgunj, Kathmandu</p>
+  <a href="./accord.html" class="details-btn">DETAILS</a>
+</div>
+
+<div id="samratParty" class="venue-item" data-name="Samrat Party Place" data-rating="4.2" data-price="105000">
+  <img src="../image/samrat.jpg" alt="Samrat Party Place" />
+  <h3>Samrat Party Place</h3>
+  <p>Seat Capacity: 400+ people</p>
+  <p>Space Preference: Outdoor + Covered</p>
+  <p>Service Location: Chabahil, Kathmandu</p>
+  <a href="./samrat.html" class="details-btn">DETAILS</a>
+</div>
+
+<div id="godhuliParty" class="venue-item" data-name="Godhuli Party Palace" data-rating="4.1" data-price="98000">
+  <img src="../image/godhuli.jpg" alt="Godhuli Party Palace" />
+  <h3>Godhuli Party Palace</h3>
+  <p>Seat Capacity: 350 people</p>
+  <p>Space Preference: Indoor</p>
+  <p>Service Location: Kapan, Kathmandu</p>
+  <a href="./godhuli.html" class="details-btn">DETAILS</a>
+</div>
+
 
       <div id="nepaBanquet" class="venue-item" data-name="Nepa Banquet" data-rating="3.5" data-price="300000">
         <img src="../image/nepabanquate.jpeg" alt="Nepa Banquet" />

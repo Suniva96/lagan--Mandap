@@ -2,299 +2,193 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Swayambhu Star Venue</title>
 
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="../Styles/pages.css" />
 
-    body {
-      background: #fff;
-      color: #333;
-    }
-
-    .nav-links {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex :1;
-}
-
-.nav-links a {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 10px 18px;
-  border-radius: 20px;
-  font-size: 1rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: background-color 0.3s ease;
-}
-.nav-links a:hover {
-  background-color: #c49b2e;
-}
-/* Search bar */
-.nav-search {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.nav-search input {
-  padding: 8px 30px 8px 12px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  outline: none;
-  font-size: 14px;
-  width: 250px; /* wider search bar */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
- .nav-search input:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 5px rgba(183, 28, 28, 0.4);
-}
-
-.nav-search i {
-  margin-left: -50px;
-  color: #888;
-}
-
-
-
-/* Hamburger Button */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  cursor: pointer;
-  color: #701414;
-}
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #c0392b;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 10px;
-        border-radius: 8px;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 20px;
-    }
-
-    .left, .right {
-      flex: 1;
-      min-width: 300px;
-      padding: 20px;
-    }
-
-    .venue-img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .facilities p {
-      margin: 6px 0;
-    }
-
-    .details-table td {
-      padding: 8px;
-    }
-
-    .button {
-      display: inline-block;
-      margin: 10px 10px 0 0;
-      padding: 10px 20px;
-      background: #e74c3c;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    .gallery {
-      padding: 20px;
-    }
-
-    .gallery-images img {
-      width: 180px;
-      height: 120px;
-      object-fit: cover;
-      margin: 8px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-images img:hover {
-      transform: scale(1.05);
-    }
-
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 70%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #000;
-    }
-
-    .close {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 40px;
-      color: #fff;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    .arrow.left {
-      left: 30px;
-    }
-
-    .arrow.right {
-      right: 30px;
-    }
-
-    .caption {
-      color: #fff;
-      margin-top: 15px;
-      font-size: 18px;
-      text-align: center;
-    }
-
-    footer {
-      background: #222;
-      color: #ddd;
-      padding: 20px;
-      text-align: center;
-    }
-  </style>
 </head>
 <body>
 
-  <header class="navbar">
-    <div class="logo"><img src="../image/LOGo.png" alt="Lagan Mandap Logo"></div>
-    <h1>Lagan Mandap</h1>
-    <i class="fas fa-bars hamburger" onclick="toggleMenu()"></i>
-    <nav class="nav-links" id="navLinks">
-      <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="Venues.html"><i class="fa-solid fa-building"></i> Venues</a>
-      <a href="Packages.html"><i class="fa-solid fa-tag"></i> Packages</a>
-      <a href="About.html"><i class="fa-solid fa-circle-info"></i> About Us</a>
-    </nav>
-  </header>
+<header class="navbar">
+  <div class="logo"><img src="../image/LOGo.png" alt="Lagan Mandap Logo" width="100"></div>
+  <h1>Lagan Mandap</h1>
+  <i id="menu-toggle" class="fas fa-bars hamburger"></i>
+  <nav class="nav-links" id="navLinks">
+    <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="Venues.html"><i class="fa-solid fa-building"></i> Venues</a>
+    <a href="Packages.html"><i class="fa-solid fa-tag"></i> Packages</a>
+    <a href="About.html"><i class="fa-solid fa-circle-info"></i> About Us</a>
+  </nav>
+</header>
 
-  <div class="container">
-    <div class="left">
-      <img src="../image/diyo1.jpg" alt="Diyo Banquet Entrance" class="venue-img">
-      <div class="facilities">
-        <p>Alcohol Service</p>
-        <p>DJ Service</p>
-        <p>Private Parking for 20 Cars</p>
-        <p>Firecrackers Not Allowed</p>
-        <p>Full Air Conditioning</p>
-        <p>Live Food Counter</p>
-        <p>Decoration Service</p>
-        <p>Changing Room</p>
-        <p>Outside Catering Allowed</p>
+<div class="container">
+  <div class="left">
+    <img src="../image/diyo1.jpg" alt="Diyo Banquet Entrance" class="venue-img" />
+    <div class="facilities">
+      <p>Alcohol Service</p>
+      <p>DJ Service</p>
+      <p>Private Parking for 20 Cars</p>
+      <p>Firecrackers Not Allowed</p>
+      <p>Full Air Conditioning</p>
+      <p>Live Food Counter</p>
+      <p>Decoration Service</p>
+      <p>Changing Room</p>
+      <p>Outside Catering Allowed</p>
+    </div>
+  </div>
+
+  <div class="right">
+    <h2>Diyo Banquet</h2>
+    <table class="details-table">
+      <tr><td><strong>Address:</strong></td><td>Dhumbarai, Kathmandu</td></tr>
+      <tr><td><strong>Phone:</strong></td><td>01-236540</td></tr>
+      <tr><td><strong>Advanced Payment:</strong></td><td>50,000</td></tr>
+      <tr><td><strong>Website:</strong></td><td><a href="https://diyomahal.com" target="_blank" rel="noopener noreferrer">diyomahal.com</a></td></tr>
+      <tr><td><strong>Space Preference:</strong></td><td>Indoor, Outdoor</td></tr>
+      <tr><td><strong>Venue Type:</strong></td><td>Party Palace</td></tr>
+      <tr><td><strong>Capacity:</strong></td><td>Hall 1: 300, Hall 2: 300, Hall 3: 200</td></tr>
+    </table>
+    <a href="Contact.html" class="button">Inquiry</a>
+    <a href="alisha.html" class="button">Book Now</a>
+  </div>
+</div>
+
+<div class="gallery">
+  <h3>Image Gallery</h3>
+  <div class="gallery-images">
+    <img src="../image/diyo2.jpg" alt="Image 1" />
+    <img src="../image/diyo5.jpg" alt="Image 2" />
+    <img src="../image/Diyo3.jpg" alt="Image 3" />
+    <img src="../image/diyo1.jpg" alt="Image 4" />
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close" id="closeBtn">&times;</span>
+  <i class="fa-solid fa-chevron-left arrow left" id="prevBtn"></i>
+  <img class="lightbox-content" id="lightboxImg" />
+  <i class="fa-solid fa-chevron-right arrow right" id="nextBtn"></i>
+  <div class="caption" id="caption"></div>
+</div>
+
+<div class="vendors">
+    <h3>Check out other vendors too!</h3>
+    <div class="vendor-cards">
+      <div class="vendor-card">
+        <img src="../image/multivennue1.jpeg" alt="Multi Venue Banquet">
+        <h4>Multi Venue Banquet</h4>
+        <p>Capacity: 500+</p>
+        <p>Indoor, Outdoor</p>
+        <a href="./multivennue.html" class="details-button">Details</a>
+      </div>
+      <div class="vendor-card">
+        <img src="../image/Imadol Banquet.jpg" alt="Imadol Banquet">
+        <h4>Imadol Banquet</h4>
+        <p>Capacity: 300</p>
+        <p>Indoor, Outdoor</p>
+        <a href="./imadol.html" class="details-button">Details</a>
+      </div>
+      <div class="vendor-card">
+        <img src="../image/Sawyubhu1.jpeg" alt="Sawyambhu Star Banquet">
+        <h4>Sawyambhu Star Banquet</h4>
+        <p>Capacity: 1000</p>
+        <p>Indoor</p>
+        <a href="./Sawyambu.html" class="details-button">Details</a>
+      </div>
+      <div class="vendor-card">
+        <img src="../image/nepabanquate.jpeg" alt="Nepa Banquet">
+        <h4>Nepa Banquet</h4>
+        <p>Capacity: 500</p>
+        <p>Indoor</p>
+        <a href="./nepa.html" class="details-button">Details</a>
       </div>
     </div>
+  </div>
 
-    <div class="right">
-      <h2>Diyo Banquet</h2>
-      <table class="details-table">
-        <tr><td><strong>Address:</strong></td><td>Dhumbarai, Kathmandu</td></tr>
-        <tr><td><strong>Phone:</strong></td><td>01-236540</td></tr>
-        <tr><td><strong>Advanced Payment:</strong></td><td>50,000</td></tr>
-        <tr><td><strong>Space Preference:</strong></td><td>Indoor, Outdoor</td></tr>
-        <tr><td><strong>Venue Type:</strong></td><td>Party Palace</td></tr>
-        <tr><td><strong>Capacity:</strong></td><td>Hall 1: 300, Hall 2: 300, Hall 3: 200</td></tr>
-      </table>
-      <a href="Contact.html" class="button">Inquiry</a>
-      <a href="alisha.html" class="button">Book Now</a>
+<footer class="footer">
+    <div class="quick-links">
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="About.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
     </div>
-  </div>
 
-  <div class="gallery">
-    <h3>Image Gallery</h3>
-    <div class="gallery-images">
-      <img src="../image/diyo2.jpg" alt="Image 1">
-      <img src="../image/diyo5.jpg" alt="Image 2">
-      <img src="../image/Diyo3.jpg" alt="Image 3">
-      <img src="../image/diyo1.jpg" alt="Image 4">
+    <div class="contact">
+      <h2>Call Now for Services!</h2>
+      <p><strong>Phone:</strong> 9841642233</p>
+      <p><strong>Email:</strong> <a href="mailto:info@laganmandap.com">info@laganmandap.com</a></p>
+      <p><strong>Address:</strong> Basundhara, Kathmandu, Nepal</p>
     </div>
-  </div>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <span class="close" id="closeBtn">&times;</span>
-    <i class="fa-solid fa-chevron-left arrow left" id="prevBtn"></i>
-    <img class="lightbox-content" id="lightboxImg">
-    <i class="fa-solid fa-chevron-right arrow right" id="nextBtn"></i>
-    <div class="caption" id="caption"></div>
-  </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 LaganMandap.com. All rights reserved.</p>
+    </div>
 
-  <footer>
-    <p>&copy; 2025 laganMandap.com. All rights reserved.</p>
-  </footer>
+<script>
+  // Hamburger toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("navLinks");
 
-  <script>
-    // Hamburger
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("show");
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  // Lightbox functionality
+  const galleryImages = document.querySelectorAll(".gallery-images img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const caption = document.getElementById("caption");
+  const closeBtn = document.getElementById("closeBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+    const img = galleryImages[index];
+    lightboxImg.src = img.src;
+    caption.textContent = `Image ${index + 1} of ${galleryImages.length}`;
+  }
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      currentIndex = index;
+      lightbox.style.display = "flex";
+      showImage(currentIndex);
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    showImage(currentIndex);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    showImage(currentIndex);
+  });
+
+  // Close lightbox on clicking outside image
+  window.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
     }
-  </script>
-  <script src="../js/lightbox.js"></script>
+  });
+</script>
+
 </body>
 </html>
