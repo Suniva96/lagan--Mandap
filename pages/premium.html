@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium Plus Package - LaganMandap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+  <style>
+    /* Reuse your existing CSS from previous pages */
+    :root {
+      --primary-color: #751401;
+      --primary-dark: #610e0e;
+      --bg-color: #fffaf5;
+      --text-color: #333;
+      --button-bg: #4f0a0a;
+      --button-hover: var(--primary-dark);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    .navbar h1 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-size: 1rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: #c49b2e;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--primary-dark);
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .title h2 {
+      font-size: 3rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .title p {
+      font-size: 1.8rem;
+      color: #8c1111;
+    }
+
+    .venue-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .venue {
+      background-color: #fff;
+      border: 1px solid #f3e8e0;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+      overflow: hidden;
+      max-width: 350px;
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s;
+    }
+
+    .venue:hover {
+      transform: translateY(-5px);
+    }
+
+    .venue img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .venue-info {
+      padding: 1rem 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .venue-info h3 {
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .venue-info p {
+      color: #555;
+      margin-bottom: 0.7rem;
+      flex-grow: 1;
+    }
+
+    .capacity {
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .cta-button {
+      background-color: var(--button-bg);
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s;
+      display: inline-block;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+
+    .cta-button:hover {
+      background-color: var(--button-hover);
+    }
+
+    .footer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 50px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .footer h2 {
+      margin-bottom: 2rem;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer li {
+      margin-bottom: 15px;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo"><img src="../image/LOGo.png" alt="LaganMandap Logo"></div>
+      <h1>Lagan Mandap</h1>
+       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="./Packages.html">Packages</a>
+        <a href="./Venues.html">Venues</a>
+        <a href="./Contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="container">
+    <div class="title">
+      <h2>Premium Plus Package</h2>
+      <p>High-end venues with grand interiors and large capacity (400+ guests)</p>
+    </div>
+
+    <div class="venue-list">
+      <div class="venue">
+        <img src="images/diyo_mahal.jpg" alt="Diyo Mahal Banquet">
+        <div class="venue-info">
+          <h3>Diyo Mahal Banquet</h3>
+          <p>Located in Maitidevi, a premium hall with grand interiors and excellent service.</p>
+          <div class="capacity">Capacity: 400+ guests</div>
+          <a href="#" class="cta-button">View Details</a>
+        </div>
+      </div>
+
+      <div class="venue">
+        <img src="images/taj_palace.jpg" alt="Taj Palace">
+        <div class="venue-info">
+          <h3>Taj Palace</h3>
+          <p>Situated in Kalanki, renowned for luxury weddings with capacity over 400 guests.</p>
+          <div class="capacity">Capacity: 400+ guests</div>
+          <a href="#" class="cta-button">View Details</a>
+        </div>
+      </div>
+
+      <div class="venue">
+        <img src="images/imadol.jpg" alt="Imadol Banquet">
+        <div class="venue-info">
+          <h3>Imadol Banquet</h3>
+          <p>Spacious and elegant venue located in Imadol, perfect for big functions.</p>
+          <div class="capacity">Capacity: 400+ guests</div>
+          <a href="#" class="cta-button">View Details</a>
+        </div>
+      </div>
+
+      <div class="venue">
+        <img src="images/dhumbarai.jpg" alt="Dhumbarai Banquet">
+        <div class="venue-info">
+          <h3>Dhumbarai Banquet</h3>
+          <p>Modern and stylish banquet in Dhumbarai for high-end weddings and events.</p>
+          <div class="capacity">Capacity: 400+ guests</div>
+          <a href="#" class="cta-button">View Details</a>
+        </div>
+      </div>
+
+      <div class="venue">
+        <img src="images/loard.jpg" alt="Loard Banquet">
+        <div class="venue-info">
+          <h3>Loard Banquet</h3>
+          <p>Located in Boudha, featuring large halls with premium aesthetics.</p>
+          <div class="capacity">Capacity: 400+ guests</div>
+          <a href="#" class="cta-button">View Details</a>
+        </div>
+      </div>
+
+      <div class="venue">
+        <img src="images/kundalini.jpg" alt="Kundalini Banquet">
+        <div class="venue-info">
+          <h3>Kundalini Banquet</h3>
+          <p>High-end venue in Hattiban with two beautiful halls and elegant ambiance.</p>
+          <div class="capacity">Capacity: 400+ guests</div>
+          <a href="#" class="cta-button">View Details</a>
+        </div>
+      </div>
+
+      <div class="venue">
+        <img src="images/kundalini.jpg" alt="Kundalini Banquet">
+        <div class="venue-info">
+          <h3>Imperial Banquet </h3>
+          <p>High-end venue in Hattiban with two beautiful halls and elegant ambiance.</p>
+          <div class="capacity">Capacity: 1000+ guests</div>
+          <a href="#" class="cta-button">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <<footer class="footer">
+    <div class="quick-links">
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="About.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <h2>Call Now for Services!</h2>
+      <p><strong>Phone:</strong> 9841642233</p>
+      <p><strong>Email:</strong> <a href="mailto:info@laganmandap.com">info@laganmandap.com</a></p>
+      <p><strong>Address:</strong> Basundhara, Kathmandu, Nepal</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 LaganMandap.com. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- Hamburger JS -->
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
+
