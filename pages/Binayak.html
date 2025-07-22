@@ -2,48 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sawyambu Star Vennue </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Binyak Multi Venue | Lagan Mandap</title>
 
-  <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-    <link rel="stylesheet" href="../Styles/pages.css" />
+  <link rel="stylesheet" href="../Styles/pages.css" />
 </head>
-<body>
 
-  <header class="navbar">
-    <div class="logo"><img src="../image/LOGo.png" alt="Lagan Mandap Logo"></div>
-    <h1> Lagan Mandap</h1>
-    <nav class="nav-links">
-      <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="Venues.html"><i class="fa-solid fa-building"></i> Venues</a>
-      <a href="Packages.html"><i class="fa-solid fa-tag"></i> Packages</a>
-      <a href="About.html"><i class="fa-solid fa-circle-info"></i> About Us</a>
-    </nav>
-  </header>
+<body>
+<header class="navbar">
+  <div class="logo"><img src="../image/LOGo.png" alt="Lagan Mandap Logo" width="100"></div>
+  <h1>Lagan Mandap</h1>
+  <i id="menu-toggle" class="fas fa-bars hamburger"></i>
+  <nav class="nav-links" id="navLinks">
+    <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="Venues.html"><i class="fa-solid fa-building"></i> Venues</a>
+    <a href="Packages.html"><i class="fa-solid fa-tag"></i> Packages</a>
+    <a href="About.html"><i class="fa-solid fa-circle-info"></i> About Us</a>
+  </nav>
+</header>
+
 <div class="container">
   <div class="left">
-    <img src="../image/Binayak multii vennue.jpeg" alt="Binayak Multi vennue" class="venue-img">
+    <img src="../image/Binayak multii vennue.jpeg" alt="Binyak Multi Venue" class="venue-img" />
     <div class="facilities">
-      <p>Alcohol Service</p>
-      <p>DJ Service</p>
-      <p>Private Parking for 10 Cars</p>
-      <p>Firecrackers   Not Allowed</p>
-      <p>Projectors</p>
-      <p>Decoration Service</p>
+      <h3>Facilities & Features</h3>
+      <ul>
+        <li>2 Spacious Banquet Halls (Up to 600 Guests)</li>
+        <li>Beautiful Outdoor Lawn for Events</li>
+        <li>Decor Service & Thematic Setup</li>
+        <li>Ample Parking Facility</li>
+        <li>In-House DJ & Sound System</li>
+        <li>Fully Air Conditioned Halls</li>
+        <li>Catering Service with Live Counters</li>
+        <li>Changing Rooms for Bride & Groom</li>
+        <li>Photography Friendly Environment</li>
+        <li><strong>Outside Food Not Allowed</strong></li>
+      </ul>
     </div>
   </div>
 
   <div class="right">
-    <h2>Binayak Muliti Vennue </h2>
+    <h2>Binyak Multi Venue</h2>
     <table class="details-table">
-      <tr><td><strong>Address:</strong></td><td>Dhumbarai, Basundhara</td></tr>
-      <tr><td><strong>Phone:</strong></td><td>01-658230</td></tr>
-      <tr><td><strong>Advanced Payment:</strong></td><td>50,000</td></tr>
-      <tr><td><strong>Space Preference:</strong></td><td>Indoor</td></tr>
-      <tr><td><strong>Venue Type:</strong></td><td>Party Palace</td></tr>
-      <tr><td><strong>Capacity:</strong></td><td>Hall 1: 500 </td></tr>
+      <tr><td><strong>Address:</strong></td><td>Gwarko, Lalitpur</td></tr>
+      <tr><td><strong>Phone:</strong></td><td>9808765432</td></tr>
+      <tr><td><strong>Advance Payment:</strong></td><td>40% advance required</td></tr>
+      <tr><td><strong>Venue Type:</strong></td><td>Banquet & Outdoor Venue</td></tr>
+      <tr><td><strong>Space Preference:</strong></td><td>Indoor & Outdoor</td></tr>
     </table>
     <a href="Contact.html" class="button">Inquiry</a>
     <a href="alisha.html" class="button">Book Now</a>
@@ -53,47 +59,54 @@
 <div class="gallery">
   <h3>Image Gallery</h3>
   <div class="gallery-images">
-    <img src="../image/binayak1.jpeg" alt="Image 1">
-    <img src="../image/binayak2.jpeg " alt="Image 2">
-    <img src="../image/binayak3.jpeg" alt="Image 3">
+    <img src="../image/binayak1.jpeg" alt="Image 1" />
+    <img src="../image/binayak3.jpeg" alt="Image 2" />
+    <img src="../image/Binayak multii vennue.jpeg" alt="Image 3" />
   </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close" id="closeBtn">&times;</span>
+  <i class="fa-solid fa-chevron-left arrow left" id="prevBtn"></i>
+  <img class="lightbox-content" id="lightboxImg" />
+  <i class="fa-solid fa-chevron-right arrow right" id="nextBtn"></i>
+  <div class="caption" id="caption"></div>
 </div>
 
 <div class="vendors">
-  <h3>Check out other vendor too !!</h3>
+  <h3>Check out other vendors too!</h3>
   <div class="vendor-cards">
     <div class="vendor-card">
-      <img src="../image/multivennue1.jpeg" alt="Vendor 1">
-      <h4>Multi Vennue Banquet</h4>
-      <p>Capacity: 500+</p>
-      <p>Indoor, Outdoor</p>
-       <a href= "./multivennue.html" class="button"> Details </a>
+      <img src="../image/Taaj.jpg" alt="Taaj Palace Banquet">
+      <h4>Taaj Palace Banquet</h4>
+      <p>Capacity: 700+</p>
+      <p>Indoor & Outdoor</p>
+      <a href="./taaj.html" class="details-button">Details</a>
     </div>
     <div class="vendor-card">
-      <img src="../image/imadol1.jpeg" alt="Vendor 2">
+      <img src="../image/Sawyubhu1.jpeg" alt="Swyambhu Star Banquet">
+      <h4>Swyambhu Star Banquet</h4>
+      <p>Capacity: 1000</p>
+      <p>Indoor</p>
+      <a href="./Sawyambu.html" class="details-button">Details</a>
+    </div>
+    <div class="vendor-card">
+      <img src="../image/Imadol Banquet.jpg" alt="Imadol Banquet">
       <h4>Imadol Banquet</h4>
       <p>Capacity: 300</p>
       <p>Indoor, Outdoor</p>
-       <a href= "./Imadol.html" class="button"> Details </a>
+      <a href="./imadol.html" class="details-button">Details</a>
     </div>
     <div class="vendor-card">
-      <img src="../image/darshan.jpg" alt="Vendor 3">
-      <h4>Darshan Banquet</h4>
-      <p>Capacity: 1200</p>
+      <img src="../image/nepabanquate.jpeg" alt="Nepa Banquet">
+      <h4>Nepa Banquet</h4>
+      <p>Capacity: 500</p>
       <p>Indoor</p>
-       <a href= "./Darshan.html" class="button"> Details </a>
+      <a href="./nepa.html" class="details-button">Details</a>
     </div>
-    <div class="vendor-card">
-        <img src="../image/nepabanquate.jpeg" alt="Nepa Banquet" />
-        <h3>Nepa Banquet</h3>
-        <p> Capacity: 650 people</p>
-        <p>Indoor</p>
-        <a href="./nepa.html" class="button">Details</a>
-      </div>
-
   </div>
 </div>
-
 
 <footer class="footer">
   <div class="quick-links">
@@ -101,22 +114,73 @@
     <ul>
       <li><a href="About.html">About Us</a></li>
       <li><a href="Contact.html">Contact Us</a></li>
-      <li>Terms & Conditions</li>
-      <li>Privacy Policy</li>
+      <li><a href="#">Terms & Conditions</a></li>
+      <li><a href="#">Privacy Policy</a></li>
     </ul>
   </div>
 
   <div class="contact">
-    <h2>Call now for Services!</h2>
-    <p>9841642233</p>
-    <p>Email Us: <a href="mailto:info@laganmandap.com">info@laganmandap.com</a></p>
-    <p>Basundhara, Kathmandu, Nepal</p>
+    <h2>Call Now for Services!</h2>
+    <p><strong>Phone:</strong> 9841642233</p>
+    <p><strong>Email:</strong> <a href="mailto:info@laganmandap.com">info@laganmandap.com</a></p>
+    <p><strong>Address:</strong> Basundhara, Kathmandu, Nepal</p>
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2025 laganMandap.com. All rights reserved.</p>
+    <p>&copy; 2025 LaganMandap.com. All rights reserved.</p>
   </div>
 </footer>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("navLinks");
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  const galleryImages = document.querySelectorAll(".gallery-images img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const caption = document.getElementById("caption");
+  const closeBtn = document.getElementById("closeBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  let currentIndex = 0;
+
+  function showImage(index) {
+    const img = galleryImages[index];
+    lightboxImg.src = img.src;
+    caption.textContent = `Image ${index + 1} of ${galleryImages.length}`;
+  }
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      currentIndex = index;
+      lightbox.style.display = "flex";
+      showImage(currentIndex);
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    showImage(currentIndex);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    showImage(currentIndex);
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
 
 </body>
 </html>
