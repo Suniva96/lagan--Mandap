@@ -1,12 +1,11 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Premium Plus Package - LaganMandap</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parampara plus Package - LaganMandap</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* Reuse your existing CSS from previous pages */
     :root {
       --primary-color: #751401;
       --primary-dark: #610e0e;
@@ -44,6 +43,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
+      position: relative;
     }
 
     .logo img {
@@ -87,9 +87,9 @@
       display: none;
       background: none;
       border: none;
-      font-size: 1.8rem;
+      font-size: 24px;
       cursor: pointer;
-      color: var(--primary-dark);
+      color: #333;
     }
 
     @media (max-width: 768px) {
@@ -100,12 +100,27 @@
       .nav-links {
         display: none;
         flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
+        background-color: #fffaf5;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        width: 150px;
       }
 
       .nav-links.active {
         display: flex;
+      }
+
+      .nav-links a {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
       }
     }
 
@@ -249,29 +264,31 @@
     }
   </style>
 </head>
+
 <body>
   <nav class="navbar">
     <div class="navbar-container">
       <div class="logo"><img src="../image/LOGo.png" alt="LaganMandap Logo"></div>
       <h1>Lagan Mandap</h1>
-       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
         <i class="fas fa-bars"></i>
       </button>
-      <div class="nav-links">
-        <a href="../index.html">Home</a>
-        <a href="./Packages.html">Packages</a>
-        <a href="./Venues.html">Venues</a>
-        <a href="./Contact.html">Contact</a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html"><i class="fa-solid fa-house-chimney"></i> Home</a>
+        <a href="./Venues.html"><i class="fa-solid fa-building"></i> Venues</a>
+        <a href="./Packages.html"><i class="fa-solid fa-tag"></i> Packages</a>
+        <a href="./Contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
+        <a href="./About.html"><i class="fa-solid fa-circle-info"></i> About</a>
+   
       </div>
     </div>
   </nav>
 
   <section class="container">
     <div class="title">
-      <h2>Premium Plus Package</h2>
-      <p>High-end venues with grand interiors and large capacity </p>
+      <h2>Premium Package</h2>
     </div>
-
+  <div class="venue-list">
     <div class="venue-list">
       <div class="venue">
         <img src="../image/diyo1.jpg" alt="Diyo Mahal Banquet">
@@ -303,16 +320,6 @@
         </div>
       </div>
 
-      <div class="venue">
-  <img src="../image/samrat.jpg" alt="Samrat Party Place">
-  <div class="venue-info">
-    <h3>Samrat Party Place</h3>
-    
-    <div class="capacity">Capacity: 500+ guests</div>
-    <a href="samrat-details.html" class="cta-button">View Details</a>
-  </div>
-</div>
-
 
       <div class="venue">
         <img src="../image/dumbarai.jpg" alt="Dhumbarai Banquet">
@@ -320,7 +327,7 @@
           <h3>Dhumbarai Banquet</h3>
          
           <div class="capacity">Capacity: 600+ guests</div>
-          <a href="#" class="cta-button">View Details</a>
+          <a href="./Dhumbarai.html" class="cta-button">View Details</a>
         </div>
       </div>
 
@@ -329,7 +336,7 @@
         <div class="venue-info">
           <h3>SaSa Banquet</h3>
           <div class="capacity">Capacity: 1000+ guests</div>
-          <a href="#" class="cta-button">View Details</a>
+          <a href="./sasa.html" class="cta-button">View Details</a>
         </div>
       </div>
 
@@ -340,7 +347,7 @@
           <h3>Loard Banquet</h3>
         
           <div class="capacity">Capacity: 500+ guests</div>
-          <a href="#" class="cta-button">View Details</a>
+          <a href="./loard.html" class="cta-button">View Details</a>
         </div>
       </div>
 
@@ -350,7 +357,7 @@
           <h3>Kundalini Banquet</h3>
          
           <div class="capacity">Capacity: 400+ guests</div>
-          <a href="#" class="cta-button">View Details</a>
+          <a href="./kundali.html" class="cta-button">View Details</a>
         </div>
       </div>
 
@@ -360,7 +367,7 @@
           <h3>Imperial Banquet </h3>
          
           <div class="capacity">Capacity: 1000+ guests</div>
-          <a href="#" class="cta-button">View Details</a>
+          <a href="./Imperial.html" class="cta-button">View Details</a>
         </div>
       </div>
     </div>

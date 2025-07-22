@@ -70,17 +70,17 @@
 
       <div class="contact-form">
         <h3>Send Us a Message</h3>
-        <form>
-          <input type="text" name="name" placeholder="Your Full Name" required />
-          <input type="email" name="email" placeholder="Your Email Address" required />
-          <input type="text" name="phone" placeholder="Mobile Number" required />
-          <select name="subject" required>
+        <form id="contactForm">
+          <input type="text" name="name" id="name" placeholder="Your Full Name" />
+          <input type="email" name="email" id="email" placeholder="Your Email Address" />
+          <input type="text" name="phone" id="phone" placeholder="Mobile Number" />
+          <select name="subject" id="subject">
             <option value="">Select Inquiry Type</option>
             <option value="booking">Booking Inquiry</option>
             <option value="vendor">Vendor Partnership</option>
             <option value="other">Other</option>
           </select>
-          <textarea name="message" rows="5" placeholder="Type your message here..." required></textarea>
+          <textarea name="message" id="message" rows="5" placeholder="Type your message here..."></textarea>
           <button type="submit">Send Message</button>
         </form>
       </div>
@@ -111,14 +111,49 @@
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script>
     // Hamburger Menu Toggle
     document.getElementById("menu-toggle").addEventListener("click", function () {
       const links = document.getElementById("nav-links");
       links.style.display = links.style.display === "flex" ? "none" : "flex";
     });
+
+    // Form Validation
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("contactForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value.trim();
+
+        if (name === "" || email === "" || phone === "" || subject === "" || message === "") {
+          alert("Please fill in all fields.");
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+
+        const phoneRegex = /^[0-9]{7,15}$/;
+        if (!phoneRegex.test(phone)) {
+          alert("Please enter a valid phone number (10 digits).");
+          return;
+        }
+
+        alert("Message sent successfully!");
+        form.reset();
+      });
+    });
   </script>
-  <script src="../js/contact.js"></script>
 
 </body>
 </html>

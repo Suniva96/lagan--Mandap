@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sajilo Bihe Package - LaganMandap</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
-  
+  <title>Parampara plus Package - LaganMandap</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* ===== Variables ===== */
     :root {
       --primary-color: #751401;
       --primary-dark: #610e0e;
@@ -17,7 +15,6 @@
       --button-hover: var(--primary-dark);
     }
 
-    /* ===== Reset ===== */
     * {
       margin: 0;
       padding: 0;
@@ -31,7 +28,6 @@
       line-height: 1.6;
     }
 
-    /* ===== Navbar ===== */
     .navbar {
       background-color: #fff;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -47,6 +43,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
+      position: relative;
     }
 
     .logo img {
@@ -62,7 +59,6 @@
       flex-shrink: 0;
     }
 
-    /* Navigation links */
     .nav-links {
       display: flex;
       gap: 1.5rem;
@@ -87,17 +83,15 @@
       background-color: #c49b2e;
     }
 
-    /* Hamburger menu button */
     .menu-toggle {
       display: none;
       background: none;
       border: none;
-      font-size: 1.8rem;
+      font-size: 24px;
       cursor: pointer;
-      color: var(--primary-dark);
+      color: #333;
     }
 
-    /* Responsive for mobile */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
@@ -106,16 +100,30 @@
       .nav-links {
         display: none;
         flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
+        background-color: #fffaf5;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        width: 150px;
       }
 
       .nav-links.active {
         display: flex;
       }
+
+      .nav-links a {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
     }
 
-    /* ===== Main Container ===== */
     .container {
       max-width: 1200px;
       margin: auto;
@@ -138,7 +146,6 @@
       color: #8c1111;
     }
 
-    /* ===== Venue List ===== */
     .venue-list {
       display: flex;
       flex-wrap: wrap;
@@ -172,7 +179,7 @@
     .venue-info {
       padding: 1rem 1.5rem;
       flex-grow: 1;
-      display: flex;
+      display: coloumn;
       flex-direction: column;
       justify-content: space-between;
     }
@@ -214,7 +221,6 @@
       background-color: var(--button-hover);
     }
 
-    /* ===== Footer ===== */
     .footer {
       background-color: var(--primary-color);
       color: white;
@@ -258,6 +264,7 @@
     }
   </style>
 </head>
+
 <body>
   <nav class="navbar">
     <div class="navbar-container">
@@ -266,30 +273,28 @@
       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
         <i class="fas fa-bars"></i>
       </button>
-      <div class="nav-links">
-       <a href="../index.html">Home</a>
-        <a href="./Packages.html">Packages</a>
-        <a href="./Venues.html">Venues</a>
-        <a href="./Contact.html">Contact</a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html"><i class="fa-solid fa-house-chimney"></i> Home</a>
+        <a href="./Venues.html"><i class="fa-solid fa-building"></i> Venues</a>
+        <a href="./Packages.html"><i class="fa-solid fa-tag"></i> Packages</a>
+        <a href="./Contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
+        <a href="./About.html"><i class="fa-solid fa-circle-info"></i> About</a>
       </div>
     </div>
   </nav>
-
   <section class="container">
     <div class="title">
-      <h2>Sajilo Bihe Package</h2>
+      <h2>Sajilo Package</h2>
     </div>
-
-    <div class="venue-list">
-      
-
-      <div class="venue">
+  <div class="venue-list">
+    <div class="venue">
         <img src="../image/accord1.jpg" alt="Accord Cafe & Restore">
         <div class="venue-info">
           <h3>Accord Cafe & Restore</h3>
           
           <div class="capacity">Capacity: 150 guests</div>
-          <a href="#" class="cta-button">View Details</a>
+          <a href="Accord.html" class="cta-button">View Details</a>
         </div>
       </div>
 
@@ -299,7 +304,7 @@
           <h3>Samart Durbar</h3>
           
           <div class="capacity">Capacity: 200 guests</div>
-          <a href="#" class="cta-button">View Details</a>
+          <a href="samrat.html" class="cta-button">View Details</a>
         </div>
       </div>
 
@@ -311,13 +316,14 @@
           <h3>Godhuli Party Palace (Anupam hall)</h3>
           
           <div class="capacity">Capacity: 180 guests</div>
-          <a href="#" class="cta-button">View Details</a>
+          <a href="gobhuli.html" class="cta-button">View Details</a>
         </div>
       </div>
     </div>
   </section>
 
-   <footer class="footer">
+
+  <footer class="footer">
     <div class="quick-links">
       <h2>Quick Links</h2>
       <ul>
@@ -327,6 +333,7 @@
         <li><a href="#">Privacy Policy</a></li>
       </ul>
     </div>
+    
 
     <div class="contact">
       <h2>Call Now for Services!</h2>
@@ -339,15 +346,21 @@
       <p>&copy; 2025 LaganMandap.com. All rights reserved.</p>
     </div>
   </footer>
- <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const toggleBtn = document.getElementById("menu-toggle");
-      const navLinks = document.getElementById("nav-links");
 
-      toggleBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+
+      toggle.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
       });
     });
   </script>
 </body>
 </html>
+
+
+
+
+

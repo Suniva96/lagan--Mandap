@@ -36,15 +36,6 @@ body {
   font-weight: 600;
 }
 
-#menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  color: #800000;
-  cursor: pointer;
-}
-
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -195,6 +186,66 @@ body {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
+/* ====== Lightbox ====== */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #000;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1100;
+  user-select: none;
+}
+
+.arrow.left {
+  left: 30px;
+}
+
+.arrow.right {
+  right: 30px;
+}
+
+.caption {
+  color: #fff;
+  margin-top: 15px;
+  font-size: 18px;
+  text-align: center;
+  user-select: none;
+}
+
 /* ====== Footer ====== */
 .footer {
   background-color: #7c2d12;
@@ -299,83 +350,8 @@ body {
   background-color: #a72b2b;
 }
 
-/* ====== Lightbox Modal ====== */
-/* --- Lightbox styles --- */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.9);
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #000;
-    }
-
-    .close {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 1100;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 50px;
-      color: #fff;
-      cursor: pointer;
-      z-index: 1100;
-      user-select: none;
-    }
-
-    .arrow.left {
-      left: 30px;
-    }
-
-    .arrow.right {
-      right: 30px;
-    }
-
-    .caption {
-      color: #fff;
-      margin-top: 15px;
-      font-size: 18px;
-      text-align: center;
-      user-select: none;
-    }
-
-    /* Gallery thumbnails */
-    .gallery-images img {
-      width: 180px;
-      height: 120px;
-      object-fit: cover;
-      margin: 8px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-images img:hover {
-      transform: scale(1.05);
-    }
-
-   .menu-toggle {
+/* ====== Mobile Navbar & Hamburger ====== */
+.menu-toggle {
   display: none;
   background: none;
   border: none;
@@ -384,7 +360,6 @@ body {
   color: #333;
 }
 
-/* Show hamburger only on small screens */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -393,43 +368,26 @@ body {
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: #fff;
+    background-color: #fffaf5;
     position: absolute;
-    top: 60px; /* adjust as per navbar height */
-    right: 10px;
+    top: 70px;
+    right: 20px;
     padding: 10px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 150px;
   }
 
   .nav-links.active {
     display: flex;
   }
+
+  .nav-links a {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
 }
-
-
-    @media (max-width: 768px) {
-      
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 0;
-        background-color: #fffaf5;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        width: 150px;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-      .nav-links a {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-      }
-      .nav-links a:last-child {
-        border-bottom: none;
-      }
-    }
